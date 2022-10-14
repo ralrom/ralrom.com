@@ -1,6 +1,6 @@
 ---
 import dayjs from "dayjs";
-import LetterCascade from "../components/LetterCascade";
+import LetterCascade from "../components/LetterCascade.astro";
 import Tilt from "../components/Tilt";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -12,12 +12,12 @@ const blogPosts = await Astro.glob("./blog/*.md"); // returns an array of posts 
     <main class="h-full pt-10 lg:pt-20 pb-5 flex flex-col items-center justify-between">
       <div class="text-center space-y-2 relative z-10">
         <h1 class="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold">
-          <LetterCascade text="Robert Al-Romhein" client:load />
+          <LetterCascade text="Robert Al-Romhein" />
         </h1>
         <p class="text-blue-500 text-lg sm:text-xl xl:text-2xl font-medium !leading-none">
-          <LetterCascade text="Full-Stack Web Developer" delay={0.2} client:load />
+          <LetterCascade text="Full-Stack Web Developer" delay="0.2s" />
           <br />
-          <LetterCascade text="& Aspiring Artist" delay={0.5} client:load />
+          <LetterCascade text="& Aspiring Artist" delay="0.5s" />
         </p>
       </div>
       <div class="relative lg:-translate-y-12 pointer-events-none select-none">

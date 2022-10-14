@@ -1,0 +1,42 @@
+---
+export interface Props {
+  text: string;
+  delay?: string;
+}
+
+const { text, delay = "0ms" } = Astro.props;
+---
+
+<span>
+  {
+    text
+      .split("")
+      .map((letter, index) => (
+        <span
+          class="letter inline-block"
+          style={`--animation-order: ${index}; --animation-delay: ${delay}`}
+          set:html={letter === " " ? "&nbsp;" : letter}
+        />
+      ))
+  }
+</span>
+
+<style>
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-0.45em);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .letter {
+    animation: slideDown 0.3s;
+    animation-fill-mode: backwards;
+    animation-delay: calc(var(--animation-order) * 50ms + var(--animation-delay));
+  }
+</style>
