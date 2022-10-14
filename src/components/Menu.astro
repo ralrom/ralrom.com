@@ -1,0 +1,47 @@
+---
+import type { ReactNode } from "react";
+import { MdArticle, MdHome, MdPalette } from "react-icons/md";
+
+interface NavigationItem {
+  name: string;
+  href: string;
+  Icon: JSX.Element;
+}
+
+// const navigation: NavigationItem[] = [
+//   { name: "Home", href: "/", Icon: MdHome },
+//   { name: "Projects", href: "/projects", Icon: MdPalette },
+//   { name: "Blog", href: "/blog", Icon: MdArticle },
+// ];
+---
+
+<nav
+  id="main-menu"
+  class="bg-[rgb(30,_58,_138)] bg-opacity-95 border-b border-black border-opacity-25 py-2.5 fixed w-full z-20 top-0 left-0"
+>
+  <div class="container">
+    <div class="flex items-center">
+      <a class="flex-shrink-0 group flex items-center" href="/">
+        <img class="h-11 w-auto group-hover:rotate-90 transition-transform" src="/assets/logo.svg" alt="Workflow" />
+        <div class="text-2xl font-semibold ml-2 text-white">RalRom</div>
+      </a>
+      <!-- <div class="space-x-2 ml-32 hidden xl:flex">
+        {
+          navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              class={
+                "px-3 py-2 pr-4 rounded-full flex items-center space-x-2 font-medium transition-colors uppercase tracking-wider text-white hover:bg-blue-700 hover:text-white"
+              }
+              activeclass="bg-blue-700 !text-white"
+            >
+              <item.Icon />
+              <span>{item.name}</span>
+            </a>
+          ))
+        }
+      </div> -->
+    </div>
+  </div>
+</nav>
