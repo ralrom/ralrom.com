@@ -4,7 +4,8 @@ import LetterCascade from "../components/LetterCascade.astro";
 import Tilt from "../components/Tilt";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const blogPosts = await Astro.glob("./blog/*.md"); // returns an array of posts that live at ./src/pages/post/*.md
+const blogPosts = await Astro.glob("./blog/*.md");
+blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
 ---
 
 <BaseLayout title="RalRom">
