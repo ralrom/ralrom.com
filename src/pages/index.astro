@@ -1,61 +1,50 @@
 ---
-import dayjs from "dayjs";
-import LetterCascade from "../components/LetterCascade.astro";
-import Tilt from "../components/Tilt";
-import BaseLayout from "../layouts/BaseLayout.astro";
-
-const blogPosts = await Astro.glob("./blog/*.md");
-blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
+import LetterCascade from "~src/components/LetterCascade.astro";
+import PostList from "~src/components/PostList.astro";
+import Tilt from "~src/components/Tilt";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="RalRom">
-  <div class="container">
-    <main class="h-full pt-10 lg:pt-20 pb-5 flex flex-col items-center justify-between">
+  <div class="container space-y-16 mt-10 my-24">
+    <div class="flex flex-col items-center">
       <div class="text-center space-y-2 relative z-10">
         <h1 class="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold">
           <LetterCascade text="Robert Al-Romhein" />
         </h1>
-        <p class="text-blue-500 text-lg sm:text-xl xl:text-2xl font-medium !leading-none">
+        <p class="text-primary-200 text-lg sm:text-xl xl:text-2xl font-medium !leading-none">
           <LetterCascade text="Full-Stack Web Developer" delay="0.2s" />
           <br />
           <LetterCascade text="& Aspiring Artist" delay="0.5s" />
         </p>
       </div>
-      <div class="relative lg:-translate-y-12 pointer-events-none select-none">
+      <div class="pointer-events-none select-none relative">
         <Tilt client:load>
+          <img src="/assets/owl-eyes.svg" class="w-[550px] relative z-10" style={{ transform: "translateZ(50px)" }} />
           <img
-            src="/assets/triangle.svg"
-            class="w-[400px] absolute -top-[100px] left-1/2 z-0"
-            style={{ transform: "translateZ(-150px) translateX(-50%)" }}
+            src="/assets/owl-pupils.svg"
+            class="w-[550px] absolute top-0 z-20"
+            style={{ transform: "translateZ(100px)" }}
           />
-          <img src="/assets/owl-eyes-1.svg" class="w-[650px] relative z-10" />
           <img
-            src="/assets/owl-eyes-2.svg"
-            class="w-[650px] absolute top-0 z-20"
-            style={{ transform: "translateZ(80px)" }}
+            src="/assets/owl-beak.svg"
+            class="w-[550px] absolute top-0 z-20"
+            style={{ transform: "translateZ(70px)" }}
+          />
+          <img
+            src="/assets/owl-feathers.svg"
+            class="w-[550px] absolute top-0 z-10"
+            style={{ transform: "translateZ(20px)" }}
+          />
+          <img
+            src="/assets/owl-raccoon.svg"
+            class="w-[550px] absolute top-0 z-0"
+            style={{ transform: "translateZ(-50px)" }}
           />
         </Tilt>
       </div>
-    </main>
-  </div>
-
-  <div class="container">
-    <div class="prose prose-invert mx-auto relative z-20 pb-24 mt-10">
-      <h2 class="text-3xl lg:text-5xl font-semibold">Blog</h2>
-      <div class="space-y-12">
-        {
-          blogPosts.map((blogPost) => (
-            <article>
-              <span class="text-xl">
-                {dayjs(blogPost.url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
-              </span>
-              <a href={blogPost.url}>
-                <h3 class="font-semibold text-2xl lg:text-3xl m-0">{blogPost.frontmatter.title}</h3>
-              </a>
-            </article>
-          ))
-        }
-      </div>
     </div>
+
+    <PostList />
   </div>
 </BaseLayout>

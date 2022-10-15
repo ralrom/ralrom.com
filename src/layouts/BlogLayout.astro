@@ -1,13 +1,24 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
+import dayjs from "dayjs";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+const { frontmatter, url } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <div data-id="wew" class="container my-10 mb-24">
-    <div class="prose prose-invert mx-auto">
-      <h1 class="font-semibold">{frontmatter.title}</h1>
+  <div class="container py-10 pb-24">
+    <div class="prose lg:prose-lg prose-invert mx-auto">
+      <span class="text-blue-400">
+        {dayjs(url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+      </span>
+      <h1 class="font-medium">{frontmatter.title}</h1>
       <slot />
     </div>
   </div>
 </BaseLayout>
+
+<style is:global>
+  pre {
+    margin-left: -8vw;
+    margin-right: -8vw;
+  }
+</style>

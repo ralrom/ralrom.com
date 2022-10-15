@@ -1,25 +1,10 @@
 ---
-const blogPosts = await Astro.glob("./blog/*.md"); // returns an array of blogPosts that live at ./src/pages/post/*.md
-import dayjs from "dayjs";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import PostList from "~src/components/PostList.astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Blog">
-  <div class="container">
-    <div class="prose prose-invert mx-auto relative z-20 pb-24 mt-10">
-      <h2 class="text-3xl lg:text-5xl font-semibold">Blog</h2>
-      {
-        blogPosts.map((blogPost) => (
-          <div key={blogPost.url}>
-            <span class="text-xl">
-              {dayjs(blogPost.url.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
-            </span>
-            <a href={blogPost.url}>
-              <h3 class="font-semibold text-2xl lg:text-3xl m-0">{blogPost.frontmatter.title}</h3>
-            </a>
-          </div>
-        ))
-      }
-    </div>
+  <div class="mt-10 my-24">
+    <PostList />
   </div>
 </BaseLayout>

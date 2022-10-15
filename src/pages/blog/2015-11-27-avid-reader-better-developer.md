@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogLayout.astro
+layout: ~src/layouts/BlogLayout.astro
 title: An Avid Reader Makes a Better Developer
 ---
 

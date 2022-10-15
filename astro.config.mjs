@@ -19,4 +19,9 @@ export default defineConfig({
   integrations: [mdx(), tailwind(), preact()],
   output: "server",
   adapter: netlify(),
+  markdown: {
+    shikiConfig: {
+      wrap: true,
+    },
+  },
 });
