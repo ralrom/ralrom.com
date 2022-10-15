@@ -1,5 +1,5 @@
-import { ReactNode, useCallback, useEffect, useRef } from "react";
-
+import { useRef, useEffect, useCallback } from "preact/hooks";
+import type { ComponentChildren } from "preact";
 // Adapted from: https://www.youtube.com/watch?v=UqEmFSlx4ps
 
 const tiltEffectSettings = {
@@ -11,7 +11,7 @@ const tiltEffectSettings = {
   reverse: true,
 };
 
-export default function Tilt({ children }: { children: ReactNode }) {
+export default function Tilt({ children }: { children: ComponentChildren }) {
   const tiltRef = useRef<HTMLDivElement | null>(null);
 
   const trackPointer = useCallback((event: any) => {
