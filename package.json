@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^0.11.4",
+    "@astrojs/netlify": "^1.2.0",
     "@astrojs/preact": "^1.2.0",
     "@astrojs/tailwind": "^2.1.0",
-    "@astrojs/vercel": "^2.2.0",
     "@fontsource/poppins": "^4.5.10",
     "astro": "^1.4.7",
     "dayjs": "^1.11.5",
