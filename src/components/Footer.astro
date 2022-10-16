@@ -12,20 +12,20 @@ const navigation: NavigationItem[] = [
 
 <nav class="bg-primary-600 border-t border-black border-opacity-25 pt-6 pb-20 z-20">
   <div class="container">
-    <div class="flex items-center justify-between">
-      <div class="space-x-6 flex">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
         {
           navigation.map((item) => (
             <a
               href={item.href}
-              class={"flex items-center space-x-2 transition-colors uppercase tracking-wider text-primary-300"}
+              class={"flex items-center space-x-2 transition-colors uppercase tracking-wider text-blue-400"}
             >
               <span>{item.name}</span>
             </a>
           ))
         }
       </div>
-      <span class="text-primary-300">&copy; Robert Al-Romhein 2022. All rights reserved.</span>
+      <span class="text-blue-400 text-sm sm:text-base">&copy; Robert Al-Romhein 2022. All rights reserved.</span>
     </div>
   </div>
 </nav>
