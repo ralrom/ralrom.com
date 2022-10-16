@@ -1,18 +1,18 @@
+import mdx from "@astrojs/mdx";
+import preact from "@astrojs/preact";
+import tailwind from "@astrojs/tailwind";
+import m2dx from "astro-m2dx";
 import { defineConfig } from "astro/config";
 
-// https://astro.build/config
-import mdx from "@astrojs/mdx";
+/** @type {import('astro-m2dx').Options} */
+const m2dxOptions = {
+  frontmatter: true,
+};
 
-// https://astro.build/config
-import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
-import preact from "@astrojs/preact";
-
-// https://astro.build/config
 export default defineConfig({
   integrations: [mdx(), tailwind(), preact()],
   markdown: {
+    remarkPlugins: [[m2dx, m2dxOptions]],
     shikiConfig: {
       wrap: true,
     },

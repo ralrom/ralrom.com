@@ -1,7 +1,7 @@
 ---
 import dayjs from "dayjs";
 
-const blogPosts = (await Astro.glob("../pages/_blog/*.md")).filter((post) => !post.frontmatter.draft);
+const blogPosts = (await Astro.glob("../pages/blog/*.md")).filter((post) => !post.frontmatter.draft);
 blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
 ---
 
