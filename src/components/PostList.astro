@@ -5,29 +5,27 @@ const blogPosts = (await Astro.glob("../pages/blog/*.md")).filter((post) => !pos
 blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
 ---
 
-<div class="container">
-  <div class="prose lg:prose-lg prose-invert mx-auto">
-    <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
-      <div class="w-24">
-        <img src="/assets/portrait-tiny.png" class="rounded-full w-16 ring-2 ring-primary-300" />
-      </div>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white">
-        Writing about web development<br />&amp; self-improvement.
-      </h2>
+<div class="prose lg:prose-lg prose-invert mx-auto">
+  <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+    <div class="w-24">
+      <img src="/assets/portrait-tiny.png" class="rounded-full w-16 ring-2 ring-primary-300" />
     </div>
-    <div class="space-y-12 sm:ml-24 sm:pl-6 sm:border-l border-blue-400 mt-6">
-      {
-        blogPosts.map((post) => (
-          <article>
-            <span class="text-blue-400">
-              {dayjs(post.url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
-            </span>
-            <a href={post.url?.replace("blog", "blog")} class="hover:opacity-75 not-prose rr-underline">
-              <h3 class="font-medium text-xl lg:text-2xl">{post.frontmatter.title}</h3>
-            </a>
-          </article>
-        ))
-      }
-    </div>
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white">
+      Writing about web development<br />&amp; self-improvement.
+    </h2>
+  </div>
+  <div class="space-y-12 sm:ml-24 sm:pl-6 sm:border-l border-blue-400 mt-6">
+    {
+      blogPosts.map((post) => (
+        <article>
+          <span class="text-blue-400">
+            {dayjs(post.url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+          </span>
+          <a href={post.url?.replace("blog", "blog")} class="hover:opacity-75 not-prose rr-underline">
+            <h3 class="font-medium text-xl lg:text-2xl">{post.frontmatter.title}</h3>
+          </a>
+        </article>
+      ))
+    }
   </div>
 </div>
