@@ -9,7 +9,7 @@ const { frontmatter, url } = Astro.props;
   <div class="container py-10 pb-24">
     <div class="prose lg:prose-lg prose-invert mx-auto">
       <span class="text-blue-400">
-        {dayjs(url?.replace("/_blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+        {dayjs(url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
       </span>
       <h1 class="font-medium">{frontmatter.title}</h1>
       <slot />
