@@ -1,5 +1,4 @@
 ---
-layout: ~src/layouts/BlogLayout.astro
 title: The Perfect Full-Height Element
 ---
 

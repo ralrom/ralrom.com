@@ -1,7 +1,7 @@
 ---
 import dayjs from "dayjs";
 
-const blogPosts = await Astro.glob("../pages/blog/*.md");
+const blogPosts = await Astro.glob("../pages/_blog/*.md");
 blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
 ---
 
@@ -20,10 +20,10 @@ blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
         blogPosts.map((post) => (
           <article>
             <div class="text-primary-300">
-              {dayjs(post.url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+              {dayjs(post.url?.replace("/_blog/", "").substring(0, 10)).format("MMM D, YYYY")}
             </div>
             <a
-              href={post.url}
+              href={post.url?.replace("_blog", "blog")}
               class="hover:opacity-75 not-prose no-underline pb-1 border-b border-secondary-500 inline-block"
             >
               <h3 class="font-medium text-xl lg:text-2xl">{post.frontmatter.title}</h3>

@@ -1,5 +1,4 @@
 ---
-layout: ~src/layouts/BlogLayout.astro
 title: A Good Reader Makes a Good Developer
 ---
 

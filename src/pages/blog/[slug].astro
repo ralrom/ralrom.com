@@ -1,0 +1,10 @@
+---
+import BlogLayout from "~src/layouts/BlogLayout.astro";
+const { slug } = Astro.params;
+const post = await import(`../_blog/${slug}.md`);
+Astro.response.headers.set("Cache-Control", "public, max-age=604800");
+---
+
+<BlogLayout {...post}>
+  <post.Content />
+</BlogLayout>
