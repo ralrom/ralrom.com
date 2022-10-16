@@ -27,15 +27,9 @@ export default function Tilt({ children }: { children: ComponentChildren }) {
     document.addEventListener("mousemove", trackPointer);
     document.addEventListener("touchmove", trackFirstTouch);
 
-    document.addEventListener("touchend", resetStyles);
-    document.addEventListener("mouseleave", resetStyles);
-
     return () => {
       document.removeEventListener("mousemove", trackPointer);
       document.removeEventListener("touchmove", trackFirstTouch);
-
-      document.removeEventListener("touchend", resetStyles);
-      document.removeEventListener("mouseleave", resetStyles);
     };
   }, [trackPointer]);
 
@@ -73,12 +67,6 @@ export default function Tilt({ children }: { children: ComponentChildren }) {
 
     tilt.style.transform = `perspective(${TILT_SETTINGS.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)
         scale3d(${TILT_SETTINGS.scale}, ${TILT_SETTINGS.scale}, ${TILT_SETTINGS.scale})`;
-  }
-
-  function resetStyles() {
-    const tilt = tiltRef.current;
-    if (!tilt) return;
-    tilt.style.transform = `perspective(${TILT_SETTINGS.perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
   }
 
   return (
