@@ -1,0 +1,21 @@
+---
+import Owl from "~src/components/Owl.astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page Not Found">
+  <div class="px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
+    <div class="mx-auto text-center space-y-4">
+      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        404 <span class="text-primary-300">&bull;</span> Page Not Found
+      </h1>
+      <p class="mt-1 text-primary-200">Please check the URL in the address bar and try again.</p>
+      <a
+        href="/"
+        class="hover:opacity-75 not-prose no-underline pb-1 border-b border-secondary-500 inline-block text-white"
+        >Go back home
+      </a>
+    </div>
+    <Owl />
+  </div>
+</BaseLayout>
