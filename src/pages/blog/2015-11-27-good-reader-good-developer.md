@@ -1,6 +1,6 @@
 ---
 layout: ~src/layouts/BlogLayout.astro
-title: A Good Reader Makes a Good Developer.
+title: A Good Reader Makes a Good Developer
 ---
 
 When I first began coding, I felt documentation was boring: I used to dive right into coding. As a result, I spent countless hours troubleshooting and writing unmaintainable code.
