@@ -2,8 +2,8 @@
 title: A Good Reader Makes a Good Developer
 ---
 
-<div className="rounded-md bg-primary-300 py-2 px-4 not-prose">
-    <p className="text-white">You might have noticed the large publishing gap between this post and the other ones. This is the first tech article I ever wrote. I'm keeping it here as a reminder of where I started.</p>
+<div className="rounded-md bg-primary-400 py-2 px-4 not-prose">
+    <p className="text-white">You might have noticed the old date on this post; this is the first tech article I ever wrote. I'm keeping it here as a reminder of where I started.</p>
 </div>
 
 When I first began coding, I felt documentation was boring: I used to dive right into coding. As a result, I spent countless hours troubleshooting and writing unmaintainable code.
