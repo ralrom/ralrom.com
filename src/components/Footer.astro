@@ -16,10 +16,7 @@ const navigation: NavigationItem[] = [
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
         {
           navigation.map((item) => (
-            <a
-              href={item.href}
-              class={"flex items-center space-x-2 transition-colors uppercase tracking-wider text-blue-400"}
-            >
+            <a href={item.href} class={"font-medium text-blue-400 hover:text-secondary-500 transition-colors"}>
               <span>{item.name}</span>
             </a>
           ))

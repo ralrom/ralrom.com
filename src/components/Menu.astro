@@ -32,11 +32,8 @@ const navigation: NavigationItem[] = [
       <div class="space-x-6 ml-32 hidden xl:flex">
         {
           navigation.map((item) => (
-            <a
-              href={item.href}
-              class={"flex items-center space-x-2 transition-colors uppercase tracking-wider text-blue-400"}
-            >
-              <span>{item.name}</span>
+            <a href={item.href} class={"font-medium text-blue-400 hover:text-secondary-500 transition-colors"}>
+              {item.name}
             </a>
           ))
         }
