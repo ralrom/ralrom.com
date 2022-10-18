@@ -12,9 +12,10 @@ const m2dxOptions = {
 export default defineConfig({
   integrations: [mdx(), tailwind(), preact()],
   markdown: {
+    extendDefaultPlugins: true,
     remarkPlugins: [[m2dx, m2dxOptions]],
-    shikiConfig: {
-      wrap: true,
-    },
+    // shikiConfig: {
+    //   wrap: true,
+    // },
   },
 });
