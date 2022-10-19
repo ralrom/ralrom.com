@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/mdx": "^0.11.4",
     "@astrojs/preact": "^1.2.0",
+    "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.1.0",
     "@fontsource/poppins": "^4.5.10",
     "astro": "^1.4.7",
