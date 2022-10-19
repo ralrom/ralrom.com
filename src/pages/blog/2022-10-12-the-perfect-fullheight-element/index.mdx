@@ -52,6 +52,8 @@ Take a look:
   loop
 />
 
+### Improving `window.innerHeight`
+
 We want to use `window.innerHeight` without the jump that it causes when toolbars resize the viewport. We can't just ignore resize events because they're important for screen rotation or window resizes on desktop. There is a solution. It lies in the fact that `100vh` remains constant despite the browser UI changing. We can use that to detect actual page resizes and ignore ones caused by a toolbar resize.
 
 First, we need an element in our HTML that will serve as a measuring stick. It can be placed anywhere in the DOM:
@@ -66,7 +68,7 @@ First, we need an element in our HTML that will serve as a measuring stick. It c
 }
 ```
 
-Next, we'll use the measuring stick element to detect if the browser height has actually changed or not. We know that `100vh` stays constant when the toolbar resizes, so, on a resize event, we can check if the measuringStick's height changed. It it stayed the same, we know the window resize event was triggered by the toolbar and we can ignore it. Otherwise, we have to actually recalculate our height. Here I'm using a technique that sets a CSS variable named `--vh`, but you could also adapt this script and directly set your element's height to `window.innerHeight`.
+Next, we'll use the measuring stick element to detect if the browser height has actually changed or not. We know that `100vh` stays constant when the toolbar resizes, so, on a resize event, we can check if the measuringStick's height changed. It it stayed the same, we know the window resize event was triggered by the toolbar and we can ignore it. Otherwise, we have to actually recalculate our height. Here I'm using a technique that sets a CSS variable named `--vh`, but you could also adapt this script and directly set your element's height to `window.innerHeight`. You may also want to throttle the resize handler event which I won't cover in this article.
 
 ```js
 // Reference value
@@ -137,3 +139,7 @@ const use_setVh = () => {
 
 export default use_setVh;
 ```
+
+As mentionned before, you may want to throttle the resize handler event.
+
+I hope you found this useful, if you have any comments you can reach me on twitter [@heyralrom](https://twitter.com/heyralrom)
