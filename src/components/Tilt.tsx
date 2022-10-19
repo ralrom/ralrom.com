@@ -34,8 +34,10 @@ export default function Tilt({ children }: { children: ComponentChildren }) {
   }, [trackPointer]);
 
   useEffect(() => {
+    // Run on page load to prevent scaling jump
+    // @ts-ignore
     update({ pageX: window.innerWidth / 2, pageY: window.innerHeight / 2 });
-  });
+  }, []);
 
   function update(event: MouseEvent | Touch) {
     const tilt = tiltRef.current;
