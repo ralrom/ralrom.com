@@ -14,5 +14,29 @@ const { frontmatter, url } = Astro.props;
       <h1 class="font-medium">{frontmatter.title}</h1>
       <slot />
     </div>
+
+    <div class="prose lg:prose-lg mx-auto mt-16">
+      <div class="not-prose">
+        <div class="giscus"></div>
+      </div>
+    </div>
   </div>
 </BaseLayout>
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo="ralrom/ralrom.com"
+  data-repo-id="R_kgDOINxYaA"
+  data-category="Blog Posts"
+  data-category-id="DIC_kwDOINxYaM4CSE-E"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
