@@ -4,6 +4,7 @@ import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import Footer from "~src/components/Footer.astro";
 import Menu from "~src/components/Menu.astro";
+import "~src/styles.css";
 
 export interface Props {
   title: string;
@@ -29,32 +30,11 @@ const { title } = Astro.props;
   </head>
   <body class="bg-primary-500">
     <Menu />
+    <div id="measuring-stick"></div>
     <div id="menu-padder" style={{ height: "64px" }}></div>
     <div class="flex-grow">
       <slot />
     </div>
     <Footer />
-    <style is:global>
-      html {
-        height: 100%;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: #0d2466;
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
-      }
-
-      .rr-underline {
-        text-decoration: underline;
-        text-decoration-color: #ffc74d;
-        text-underline-position: under;
-      }
-
-      iframe {
-        outline: none !important;
-      }
-    </style>
   </body>
 </html>

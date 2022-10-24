@@ -1,18 +1,11 @@
 ---
-interface NavigationItem {
-  name: string;
-  href: string;
-}
+import MobileMenu from "./MobileMenu";
 
-const navigation: NavigationItem[] = [
-  { name: "Home", href: "/" },
-  // { name: "Projects", href: "/projects", Icon: MdPalette },
-  { name: "Blog", href: "/blog" },
-];
+import { nav } from "~src/nav";
 ---
 
 <nav
-  class="bg-[#0d2466] bg-opacity-95 border-b border-black border-opacity-25 py-2.5 fixed w-full z-50 top-0 left-0"
+  class="fixed bg-primary-500 bg-opacity-95 border-b border-black border-opacity-25 py-2.5 w-full z-50 top-0 left-0"
   style={{
     transform: "translateZ(99999px)",
     transformStyle: "preserve-3d",
@@ -28,9 +21,12 @@ const navigation: NavigationItem[] = [
         />
         <div class="text-2xl font-semibold ml-2 text-white">RalRom</div>
       </a>
-      <div class="space-x-6 ml-32 hidden xl:flex">
+
+      <MobileMenu client:only="preact" />
+
+      <div class="ml-32 hidden sm:flex gap-6">
         {
-          navigation.map((item) => (
+          nav.map((item) => (
             <a href={item.href} class={"font-medium text-blue-400 hover:text-secondary-500 transition-colors"}>
               {item.name}
             </a>
