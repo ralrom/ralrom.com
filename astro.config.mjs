@@ -12,6 +12,7 @@ const m2dxOptions = {
 };
 
 export default defineConfig({
+  output: "server",
   site: "https://www.ralrom.com",
   integrations: [
     mdx(),
