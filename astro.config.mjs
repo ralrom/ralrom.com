@@ -7,6 +7,7 @@ import m2dx from "astro-m2dx";
 import { defineConfig } from "astro/config";
 
 /** @type {import('astro-m2dx').Options} */
+import netlify from "@astrojs/netlify/functions";
 const m2dxOptions = {
   frontmatter: true,
 };
@@ -27,4 +28,5 @@ export default defineConfig({
     extendDefaultPlugins: true,
     remarkPlugins: [[m2dx, m2dxOptions]],
   },
+  adapter: netlify(),
 });
