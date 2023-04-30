@@ -1,6 +1,6 @@
 ---
 import LetterCascade from "~src/components/LetterCascade.astro";
-import Owl from "~src/components/Owl.astro";
+import Owl from "~src/components/Owl";
 import PostList from "~src/components/PostList.astro";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
@@ -19,7 +19,7 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
         </p>
       </div>
       <div style={{ touchAction: "none" }} class="aspect-[1_/_0.8]">
-        <Owl />
+        <Owl client:load />
       </div>
     </div>
 

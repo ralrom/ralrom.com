@@ -1,5 +1,5 @@
 ---
-import Owl from "~src/components/Owl.astro";
+import Owl from "~src/components/Owl";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
 
@@ -12,6 +12,6 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
       <p class="mt-1 text-primary-200">Please check the URL in the address bar and try again.</p>
       <a href="/" class="hover:opacity-75 not-prose text-white">Go back home</a>
     </div>
-    <Owl />
+    <Owl client:load />
   </div>
 </BaseLayout>

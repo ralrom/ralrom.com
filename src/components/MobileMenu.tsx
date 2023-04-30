@@ -51,7 +51,7 @@ function MobileMenu() {
         }`}
         style={{ height: `calc(100 * var(--vh))` }}
       >
-        <div className="flex flex-col p-10 gap-10 bg-primary-900 absolute z-10 w-full h-full top-0 right-0">
+        <div className="flex flex-col p-10 gap-10 bg-primary-600 absolute z-10 w-full h-full top-0 right-0">
           {nav.map((item) => (
             <a
               href={item.href}

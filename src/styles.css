@@ -38,7 +38,6 @@ iframe {
  * @link https://github.com/jonsuh/hamburgers
  */
 .hamburger {
-  cursor: pointer;
   transition-property: opacity, filter;
   transition-duration: 0.15s;
   transition-timing-function: linear;

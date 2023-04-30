@@ -2,9 +2,8 @@
  * This component fakes a 3D effect
  * Adapted from: https://www.youtube.com/watch?v=UqEmFSlx4ps
  */
-
 import type { ComponentChildren } from "preact";
-import { useCallback, useEffect, useRef } from "preact/hooks";
+import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
 const TILT_SETTINGS = {
   max: 12, // max tilt rotation (degrees (deg))
@@ -12,7 +11,7 @@ const TILT_SETTINGS = {
   scale: 1, // transform scale, 2 = 200%, 1.5 = 150%, etc..
 };
 
-export default function Tilt({ children }: { children: ComponentChildren }) {
+export default function Tilt({ children, className }: { children: ComponentChildren; className: string }) {
   const tiltRef = useRef<HTMLDivElement | null>(null);
 
   const trackPointer = useCallback((event: any) => {
@@ -22,14 +21,10 @@ export default function Tilt({ children }: { children: ComponentChildren }) {
   }, []);
 
   useEffect(() => {
-    const trackFirstTouch = (e: TouchEvent) => trackPointer(e.touches[0]);
-
     document.addEventListener("mousemove", trackPointer);
-    document.addEventListener("touchmove", trackFirstTouch);
 
     return () => {
       document.removeEventListener("mousemove", trackPointer);
-      document.removeEventListener("touchmove", trackFirstTouch);
     };
   }, [trackPointer]);
 
@@ -39,7 +34,36 @@ export default function Tilt({ children }: { children: ComponentChildren }) {
     update({ pageX: window.innerWidth / 2, pageY: window.innerHeight / 2 });
   }, []);
 
-  function update(event: MouseEvent | Touch) {
+  // function enableTilt() {
+  //   function handleOrientation(event: DeviceOrientationEvent) {
+  //     const alpha = event.alpha;
+  //     const beta = event.beta;
+  //     const gamma = event.gamma;
+
+  //     set_data({ alpha, beta, gamma });
+
+  //     // @ts-ignore
+  //     update({ pageX: (45 - gamma) * 14, pageY: (90 - beta) * 14 });
+  //   }
+
+  //   // @ts-ignore
+  //   if (typeof DeviceMotionEvent !== "undefined" && typeof DeviceMotionEvent.requestPermission === "function") {
+  //     // @ts-ignore
+  //     DeviceMotionEvent.requestPermission()
+  //       .then((response: any) => {
+  //         if (response == "granted") {
+  //           window.addEventListener("deviceorientation", handleOrientation);
+  //         }
+  //       })
+  //       .catch(console.error);
+  //   }
+
+  //   return () => {
+  //     window.removeEventListener("deviceorientation", handleOrientation);
+  //   };
+  // }
+
+  function update(event: MouseEvent) {
     const tilt = tiltRef.current;
     if (!tilt) return;
 
@@ -69,15 +93,12 @@ export default function Tilt({ children }: { children: ComponentChildren }) {
 
     tilt.style.transform = `perspective(${TILT_SETTINGS.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)
         scale3d(${TILT_SETTINGS.scale}, ${TILT_SETTINGS.scale}, ${TILT_SETTINGS.scale})`;
+
+    tilt.style.transformStyle = "preserve-3d";
   }
 
   return (
-    <div
-      ref={tiltRef}
-      style={{
-        transformStyle: "preserve-3d",
-      }}
-    >
+    <div ref={tiltRef} className={className}>
       {children}
     </div>
   );

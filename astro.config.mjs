@@ -12,9 +12,10 @@ const m2dxOptions = {
   frontmatter: true,
 };
 
+// https://astro.build/config
 export default defineConfig({
   output: "server",
-  site: "https://www.ralrom.com",
+  site: "https://www.ralrom.com/",
   integrations: [
     mdx(),
     tailwind(),
