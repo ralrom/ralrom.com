@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "RalRom",
+    "short_name": "RalRom",
+    "start_url": "https://www.ralrom.com",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
