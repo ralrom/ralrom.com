@@ -1,5 +1,6 @@
 ---
 title: A Good Reader Makes a Good Developer
+draft: true
 ---
 
 <div className="rounded-md bg-primary-500 bg-opacity-90 py-4 px-8 leading-snug not-prose">
