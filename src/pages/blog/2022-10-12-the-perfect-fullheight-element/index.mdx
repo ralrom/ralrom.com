@@ -17,7 +17,14 @@ Creating full-height HTML elements isn't as easy as it might seem. The main chal
 
 This is what it looks like on an iPhone 13 Pro, there's a `100vh` element with text positioned at its bottom. When the toolbar is visible, it covers the text:
 
-<video class="max-h-[70vh] bg-primary-900 p-2 mx-auto rounded-lg" src={vid_100vh} autoplay playsinline muted loop />
+<video
+  class="max-h-[70vh] lg:max-h-[60vh] bg-black p-2 mx-auto rounded-lg"
+  src={vid_100vh}
+  autoplay
+  playsinline
+  muted
+  loop
+/>
 
 ## What solutions are already out there?
 
@@ -42,7 +49,7 @@ Unfortunately, CSS has failed us. It's time to pull out our JavaScript toolbox. 
 Take a look:
 
 <video
-  class="max-h-[70vh] bg-primary-900 p-2 mx-auto rounded-lg"
+  class="max-h-[70vh] lg:max-h-[60vh] bg-black p-2 mx-auto rounded-lg"
   src={vid_innerHeight}
   autoplay
   playsinline
@@ -99,7 +106,7 @@ Finally we can set the height on our full-height elements like this:
 Here's the final result, notice how it's smooth and there are no jumps when the toolbar hides or appears:
 
 <video
-  class="max-h-[70vh] bg-primary-900 p-2 mx-auto rounded-lg"
+  class="max-h-[70vh] lg:max-h-[60vh] bg-black p-2 mx-auto rounded-lg"
   src={vid_measuringStick}
   autoplay
   playsinline
