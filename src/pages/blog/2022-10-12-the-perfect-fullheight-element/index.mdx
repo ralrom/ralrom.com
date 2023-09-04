@@ -8,8 +8,6 @@ import vid_measuringStick from "./measuringStick.mp4";
 
 Creating full-height HTML elements isn't as easy as it might seem. The main challenge is the way mobile browsers handle viewport units. The ideal scenario would be to set an element's height to `100vh` and be done with it. That works on desktop, but on mobile, browsers hide their toolbars on scroll and change their viewport size. So browsers have a decision to make here: should `100vh` include the height of the toolbars or not? I'd like `100vh` to exclude the toolbars because it's the value I use when I don't want elements to be cut off at the bottom. However, the Webkit team decided that `100vh` would represent the larger viewport size:
 
-> This is completely intentional. It took quite a bit of work on our part to achieve this effect. :)
->
 > The base problem is this: the visible area changes dynamically as you scroll. If we update the CSS viewport height accordingly, we need to update the layout during the scroll. Not only that looks like shit, but doing that at 60 FPS is practically impossible in most pages (60 FPS is the baseline framerate on iOS).
 > It is hard to show you the "looks like shit" part, but imagine as you scroll, the contents moves and what you want on screen is continuously shifting.
 >
@@ -39,7 +37,7 @@ This will eventually be the correct solution; however, right now, [browser suppo
 
 ### Using `window.innerHeight`
 
-Unfortunately, CSS has failed us. It's time to pull out the big guns with JavaScript. Most solutions I have found on this subject rely on `window.innerHeight` and `window.addEventListener('resize', ...)`. It's a good solution, but it has a little flaw if used by itself. Whenever the toolbar disappears or reappears, the `window.innerHeight` value changes and causes an abrupt page jump when the height adjusts itself.
+Unfortunately, CSS has failed us. It's time to pull out our JavaScript toolbox. Most solutions I have found on this subject rely on `window.innerHeight` and `window.addEventListener('resize', ...)`. It's a good solution, but it has a little flaw if used by itself. Whenever the toolbar disappears or reappears, the `window.innerHeight` value changes and causes an abrupt page jump when the height adjusts itself.
 
 Take a look:
 

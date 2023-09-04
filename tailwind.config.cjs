@@ -31,6 +31,7 @@ const CUSTOM_COLORS = {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: "class",
   theme: {
     extend: {
       typography: {
@@ -41,8 +42,9 @@ module.exports = {
               borderColor: colors.blue["500"],
             },
             code: {
-              // color: CUSTOM_COLORS.secondary["400"],
-              background: CUSTOM_COLORS.primary["700"],
+              background: CUSTOM_COLORS.secondary["500"],
+              color: CUSTOM_COLORS.primary["500"] + " !important",
+              fontWeight: 400,
               padding: defaultTheme.spacing["1"],
               borderRadius: defaultTheme.borderRadius.md,
             },

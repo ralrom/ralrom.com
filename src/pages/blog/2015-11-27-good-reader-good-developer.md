@@ -2,7 +2,7 @@
 title: A Good Reader Makes a Good Developer
 ---
 
-<div className="rounded-md bg-primary-400 py-2 px-4 not-prose">
+<div className="rounded-md bg-primary-500 bg-opacity-90 py-4 px-8 leading-snug not-prose">
     <p className="text-white">You might have noticed the old date on this post; this is the first tech article I ever wrote. I'm keeping it here as a reminder of where I started.</p>
 </div>
 

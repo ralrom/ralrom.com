@@ -1,42 +1,52 @@
 ---
 import dayjs from "dayjs";
+import DarkModeToggle from "~src/components/DarkModeToggle";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 
 const { frontmatter, url } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <div class="container py-10 pb-24">
+  <!-- Post Header -->
+  <div class="container py-10">
     <div class="prose lg:prose-lg prose-invert mx-auto">
       <span class="text-blue-400">
         {dayjs(url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
       </span>
       <h1 class="font-medium">{frontmatter.title}</h1>
-      <slot />
-    </div>
-
-    <div class="prose lg:prose-lg mx-auto mt-16">
-      <div class="not-prose">
-        <div class="giscus"></div>
-      </div>
     </div>
   </div>
-</BaseLayout>
 
-<script
-  src="https://giscus.app/client.js"
-  data-repo="ralrom/ralrom.com"
-  data-repo-id="R_kgDOINxYaA"
-  data-category="Blog Posts"
-  data-category-id="DIC_kwDOINxYaM4CSE-E"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="dark"
-  data-lang="en"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+  <!-- Post content + comments -->
+  <div class="bg-white dark:bg-slate-900 pt-10 pb-24 relative">
+    <div class="w-full absolute top-0 -translate-y-1/2">
+      <div class="prose lg:prose-lg mx-auto flex">
+        <DarkModeToggle client:only="preact" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="prose lg:prose-lg dark:prose-invert mx-auto mb-16">
+        <slot />
+      </div>
+      <div class="giscus"></div>
+    </div>
+  </div>
+
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="ralrom/ralrom.com"
+    data-repo-id="R_kgDOINxYaA"
+    data-category="Blog Posts"
+    data-category-id="DIC_kwDOINxYaM4CSE-E"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="dark"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</BaseLayout>
