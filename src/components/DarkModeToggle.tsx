@@ -1,12 +1,14 @@
-const Moon = ({ onClick }: { onClick: () => void }) => (
+import { useState } from "preact/hooks";
+
+const Moon = (props: any) => (
   <svg
-    onClick={onClick}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-7 h-7 cursor-pointer"
+    {...props}
+    className={`w-7 h-7 cursor-pointer ${props.className}`}
   >
     <path
       strokeLinecap="round"
@@ -16,15 +18,15 @@ const Moon = ({ onClick }: { onClick: () => void }) => (
   </svg>
 );
 
-const Sun = ({ onClick }: { onClick: () => void }) => (
+const Sun = (props: any) => (
   <svg
-    onClick={onClick}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-7 h-7 cursor-pointer"
+    {...props}
+    className={`w-7 h-7 cursor-pointer ${props.className}`}
   >
     <path
       strokeLinecap="round"
@@ -35,19 +37,23 @@ const Sun = ({ onClick }: { onClick: () => void }) => (
 );
 
 export default function DarkModeToggle() {
+  const [isDark, set_isDark] = useState(() => document.body.classList.contains("dark"));
+
   function setDarkMode(isDark: boolean) {
     localStorage.setItem("darkMode", isDark.toString());
     if (isDark) {
       document.body.classList.add("dark");
+      set_isDark(true);
     } else {
       document.body.classList.remove("dark");
+      set_isDark(false);
     }
   }
 
   return (
     <div class="flex gap-2 items-center py-2 px-4 rounded-full bg-primary-500 border border-primary-700 text-primary-50">
-      <Moon onClick={() => setDarkMode(true)} />
-      <Sun onClick={() => setDarkMode(false)} />
+      <Moon onClick={() => setDarkMode(true)} className={isDark ? "text-secondary-600" : ""} />
+      <Sun onClick={() => setDarkMode(false)} className={isDark === false ? "text-secondary-600" : ""} />
     </div>
   );
 }
