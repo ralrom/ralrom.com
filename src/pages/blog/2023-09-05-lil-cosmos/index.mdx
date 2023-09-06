@@ -11,7 +11,6 @@ import img0_plan from "./assets/0-plan.png";
 import img1_pieceCount from "./assets/1-piece-count.png";
 import img2_firstBases from "./assets/2-first-bases.jpg";
 import img2_testChrome from "./assets/2-test-chrome.jpg";
-import img3_firstColumns from "./assets/3-first-columns.jpg";
 import img4_wipTruss from "./assets/4-wip-truss.jpg";
 import img5_wipTruss2 from "./assets/5-wip-truss-2.jpg";
 import img6_wipTruss3 from "./assets/6-wip-truss-3.jpg";
@@ -28,11 +27,9 @@ import img16_stageBeforeLights from "./assets/16-stage-before-lights.jpg";
 import vid17_finalTtest from "./assets/17-final-test.mp4";
 import vid18_closingNight from "./assets/18-closing-night.mp4";
 
-## Intro
+Each summer our company organizes a large one-night camping event. It's like a private festival; there are 3 stages, live artists, fireworks, secret bars and more. My friends & I wanted to pull off a secret stunt this year so we created our own miniature stage.
 
-Each summer our company organizes a large one-night camping event. It's like a private festival; there are 3 stages, live artists, fireworks, secret bars and more. My friends & I wanted to pull off a secret stunt this year and so we created our own miniature stage.
-
-We even made an original music album with 9 songs for the stunt. Everyone who saw the stage loved it and we're very happy with the reactions.
+The idea was to have a tiny alien rapper do a live performance. We even made an original music album with 9 songs for the stunt. Everyone who saw the stage loved it and we're very happy with the reactions.
 
 ## Final result
 
@@ -59,7 +56,7 @@ Watch it in action (explicit language):
   </figcaption>
 </figure>
 
-The full original album on SoundCloud:
+Listen to the full original album on SoundCloud:
 
 <iframe
   width="100%"
@@ -106,11 +103,6 @@ In our design we wanted 4 screens: one on each side of the stage, one behind the
 </div>
 
 <figure>
-  <Image src={img3_firstColumns} alt="" class="max-h-[70vh] w-full object-contain" />
-  <figcaption class="text-center">Testing out how well the pieces stack.</figcaption>
-</figure>
-
-<figure>
   <Image src={img4_wipTruss} alt="" />
   <figcaption>More truss sections printed and glued.</figcaption>
 </figure>
@@ -137,9 +129,8 @@ In our design we wanted 4 screens: one on each side of the stage, one behind the
   </figure>
 </div>
 
-Originally we wanted to glue the columns to the truss on site to make it easier to transport. However, it turned out
-that the trusses were more fragile than anticipated and the expoy took a long time to fully cure. For both of those
-reasons, we decided to do the full assembly in advance at the cost of making it more difficult to fit in a car.
+Originally we wanted to glue the columns to the truss on site to make it easier to transport. However, the trusses were more fragile than anticipated and the expoy took a long time to fully cure. For both of those
+reasons, we decided to do the full assembly in advance even though it'd be more difficult to fit in a car.
 
 <figure>
   <Image src={img8_wipTruss5} alt="" />
@@ -148,28 +139,33 @@ reasons, we decided to do the full assembly in advance at the cost of making it 
   </figcaption>
 </figure>
 
+We wanted Lil Cosmos to look like a real live performer; we wanted him to appear in front of the stage. To achieve that, we used a Pepper's ghost to create an illusion of him being a 3D character at the front of the stage. The effect relies on having a reflective film angled at 45 degrees to reflect an image on the floor. You can see how it works here:
+
 <figure>
   <video src={vid9_peppersGhost} controls />
-  <figcaption>A closer look at the Pepper's ghost effect which creates a hologram or 3D effect.</figcaption>
+  <figcaption>A closer look at the Pepper's ghost effect which creates a 3D effect.</figcaption>
 </figure>
+
+Once the Pepper's ghost was fixed to the frame, we started testing out early versions of the visuals and music.
 
 <figure>
   <video src={vid10_stage} controls />
-  <figcaption>An early test with visuals and music. Both have evolved greatly since.</figcaption>
+  <figcaption>An early test with visuals and music.</figcaption>
 </figure>
+
+We initially wanted to 3D print the UFO but it turned out to be too big to print convienently and the shape we wanted was basic enough that I thought we'd be able to pull it off by hand.
 
 <div class="grid lg:grid-cols-2 gap-4">
   <figure>
     <Image src={img11_ufo} alt="" class="aspect-square object-cover" />
     <figcaption>
-      Building the UFO by hand with some cardboard paper, masking tape and random circular objects found at the dollar
-      store.
+      Building the UFO with some cardboard paper, masking tape and circular objects from the dollar store.
     </figcaption>
   </figure>
 
   <figure>
     <Image src={img12_ufo2} alt="" class="aspect-square object-cover" />
-    <figcaption>Full UFO frame assembled and painted.</figcaption>
+    <figcaption>Full UFO frame assembled and painted. LEDs are not yet installed in this pic.</figcaption>
   </figure>
 </div>
 
@@ -177,6 +173,8 @@ reasons, we decided to do the full assembly in advance at the cost of making it 
   <video src={vid13_ufo} controls class="max-h-[80vh] mx-auto" />
   <figcaption class="text-center">Testing the lighting effects on the UFO.</figcaption>
 </figure>
+
+As a final touch, we wanted to add small props around the stage. I 3D printed some speakers and painted them.
 
 <div class="grid lg:grid-cols-2 gap-4">
   <figure>
@@ -192,17 +190,16 @@ reasons, we decided to do the full assembly in advance at the cost of making it 
 
 <figure>
   <Image src={img16_stageBeforeLights} alt="" />
-  <figcaption>Test with the speakers in place</figcaption>
+  <figcaption>Look test with the speakers in place</figcaption>
 </figure>
+
+We found a good spot to place the stage at the camping site and installed a tarp above it all because we had a lot of rain.
 
 <figure>
   <video src={vid17_finalTtest} controls class="max-h-[80vh] mx-auto" />
   <figcaption>Final test the day before on location.</figcaption>
 </figure>
 
-## Conclusion
+The final result:
 
-<figure>
-  <video src={vid18_closingNight} controls class="max-h-[80vh] mx-auto" />
-  <figcaption>Final test the day before on location.</figcaption>
-</figure>
+<video src={vid18_closingNight} controls class="max-h-[80vh] mx-auto" />
