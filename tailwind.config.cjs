@@ -37,6 +37,10 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            figcaption: {
+              fontStyle: "italic",
+              fontSize: "0.8em !important",
+            },
             blockquote: {
               fontWeight: 400,
               borderColor: colors.blue["500"],

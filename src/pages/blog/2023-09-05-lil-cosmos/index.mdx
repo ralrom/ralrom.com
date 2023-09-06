@@ -1,0 +1,208 @@
+---
+title: >
+  How My Friends & I Built a Miniature Stage for Lil Cosmos the Alien Rapper
+---
+
+import { Image, Picture } from "@astrojs/image/components";
+
+import vid0_final from "./assets/0-final-result.mp4";
+import img0_preview from "./assets/0-preview.jpg";
+import img0_plan from "./assets/0-plan.png";
+import img1_pieceCount from "./assets/1-piece-count.png";
+import img2_firstBases from "./assets/2-first-bases.jpg";
+import img2_testChrome from "./assets/2-test-chrome.jpg";
+import img3_firstColumns from "./assets/3-first-columns.jpg";
+import img4_wipTruss from "./assets/4-wip-truss.jpg";
+import img5_wipTruss2 from "./assets/5-wip-truss-2.jpg";
+import img6_wipTruss3 from "./assets/6-wip-truss-3.jpg";
+import img7_wipTruss4 from "./assets/7-wip-truss-4.jpg";
+import img8_wipTruss5 from "./assets/8-wip-truss-5.jpg";
+import vid9_peppersGhost from "./assets/9-peppers-ghost.mp4";
+import vid10_stage from "./assets/10-wip-stage.mp4";
+import img11_ufo from "./assets/11-ufo.jpg";
+import img12_ufo2 from "./assets/12-ufo-2.jpg";
+import vid13_ufo from "./assets/13-ufo-test.mp4";
+import img14_speakers from "./assets/14-speakers.jpg";
+import img15_speakers2 from "./assets/15-speakers-2.jpg";
+import img16_stageBeforeLights from "./assets/16-stage-before-lights.jpg";
+import vid17_finalTtest from "./assets/17-final-test.mp4";
+import vid18_closingNight from "./assets/18-closing-night.mp4";
+
+## Intro
+
+Each summer our company organizes a large one-night camping event. It's like a private festival; there are 3 stages, live artists, fireworks, secret bars and more. My friends & I wanted to pull off a secret stunt this year and so we created our own miniature stage.
+
+We even made an original music album with 9 songs for the stunt. Everyone who saw the stage loved it and we're very happy with the reactions.
+
+## Final result
+
+<figure>
+  <Image
+    src={img0_preview}
+    alt="Daytime picture of the final version of the miniature stage. The stage is made with a 3D printed truss frame, a handmade UFO (cardboard & masking tape), Pepper's ghost to create a hologram for Lil Cosmos, custom VFX & lighting (TouchDesigner), and an original music album with 9 songs."
+  />
+  <figcaption>
+    Daytime picture of the final version of the miniature stage. The stage is made with a 3D printed truss frame, a
+    handmade UFO (cardboard & masking tape), Pepper's ghost to create a hologram for Lil Cosmos, custom VFX & lighting
+    (TouchDesigner), and an original music album with 9 songs.
+  </figcaption>
+</figure>
+
+Watch it in action (explicit language):
+
+<figure>
+  <video src={vid0_final} controls />
+  <figcaption>
+    Each song has its own visuals (screen on the back & on the sides) as well as custom lighting, all of which is driven
+    by TouchDesigner. The dance moves you see are all motion captured from our friends who voluntereed to dance for Lil
+    Cosmos.
+  </figcaption>
+</figure>
+
+The full original album on SoundCloud:
+
+<iframe
+  width="100%"
+  height="400"
+  scrolling="no"
+  frameborder="no"
+  allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1669936375&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+></iframe>
+
+## The Making Of
+
+In our design we wanted 4 screens: one on each side of the stage, one behind the stage and one as the floor of stage to create the Pepper's ghost effect. Our intention was to 3D print the stage truss and the UFO, and add a few lasers around the front of the stage that would be controlled by TouchDesigner to react to the music.
+
+<figure>
+  <Image
+    src={img0_plan}
+    alt="The original plan for our stage. We've since reduced the size slightly and replaced the lasers with LEDs but otherwise we're very close to the original intent."
+  />
+  <figcaption>
+    The original plan for our stage. We've since reduced the size slightly and replaced the lasers with LEDs but
+    otherwise we're very close to the original intent.
+  </figcaption>
+</figure>
+
+<figure>
+  <Image src={img1_pieceCount} alt="" />
+  <figcaption>
+    In the orignal design we had 42 middle male pieces; in the final version we reduced it to 30. All the other piece
+    counts are accurate.
+  </figcaption>
+</figure>
+
+<div class="grid lg:grid-cols-2 gap-4">
+  <figure>
+    <Image src={img2_firstBases} alt="" />
+    <figcaption>Firsts prints. Testing out the bases and a truss section.</figcaption>
+  </figure>
+
+  <figure>
+    <Image src={img2_testChrome} alt="" />
+    <figcaption>Chrome spray paint test. It was a game changer; we sprayed everything with it.</figcaption>
+  </figure>
+</div>
+
+<figure>
+  <Image src={img3_firstColumns} alt="" class="max-h-[70vh] w-full object-contain" />
+  <figcaption class="text-center">Testing out how well the pieces stack.</figcaption>
+</figure>
+
+<figure>
+  <Image src={img4_wipTruss} alt="" />
+  <figcaption>More truss sections printed and glued.</figcaption>
+</figure>
+
+<figure>
+  <Image src={img5_wipTruss2} alt="" />
+  <figcaption>
+    Full truss assembled (columns are not glued yet). You can see some of the tie-wraps I used to hold everything
+    together while the expoxy was drying.
+  </figcaption>
+</figure>
+
+<div class="grid lg:grid-cols-2 gap-4">
+  <figure>
+    <Image src={img6_wipTruss3} alt="" />
+    <figcaption>
+      Painting the wood base and frame in black and priming the truss to prepare it for painting.
+    </figcaption>
+  </figure>
+
+  <figure>
+    <Image src={img7_wipTruss4} alt="" />
+    <figcaption>I see a red door and I want it painted chrome.</figcaption>
+  </figure>
+</div>
+
+Originally we wanted to glue the columns to the truss on site to make it easier to transport. However, it turned out
+that the trusses were more fragile than anticipated and the expoy took a long time to fully cure. For both of those
+reasons, we decided to do the full assembly in advance at the cost of making it more difficult to fit in a car.
+
+<figure>
+  <Image src={img8_wipTruss5} alt="" />
+  <figcaption>
+    The columns are being fixed in place with some tape & wood beams to keep everything square while the epoxy dries.
+  </figcaption>
+</figure>
+
+<figure>
+  <video src={vid9_peppersGhost} controls />
+  <figcaption>A closer look at the Pepper's ghost effect which creates a hologram or 3D effect.</figcaption>
+</figure>
+
+<figure>
+  <video src={vid10_stage} controls />
+  <figcaption>An early test with visuals and music. Both have evolved greatly since.</figcaption>
+</figure>
+
+<div class="grid lg:grid-cols-2 gap-4">
+  <figure>
+    <Image src={img11_ufo} alt="" class="aspect-square object-cover" />
+    <figcaption>
+      Building the UFO by hand with some cardboard paper, masking tape and random circular objects found at the dollar
+      store.
+    </figcaption>
+  </figure>
+
+  <figure>
+    <Image src={img12_ufo2} alt="" class="aspect-square object-cover" />
+    <figcaption>Full UFO frame assembled and painted.</figcaption>
+  </figure>
+</div>
+
+<figure>
+  <video src={vid13_ufo} controls class="max-h-[80vh] mx-auto" />
+  <figcaption class="text-center">Testing the lighting effects on the UFO.</figcaption>
+</figure>
+
+<div class="grid lg:grid-cols-2 gap-4">
+  <figure>
+    <Image src={img14_speakers} alt="" />
+    <figcaption>3D printed speakers</figcaption>
+  </figure>
+
+  <figure>
+    <Image src={img15_speakers2} alt="" />
+    <figcaption>Speakers primed & painted</figcaption>
+  </figure>
+</div>
+
+<figure>
+  <Image src={img16_stageBeforeLights} alt="" />
+  <figcaption>Test with the speakers in place</figcaption>
+</figure>
+
+<figure>
+  <video src={vid17_finalTtest} controls class="max-h-[80vh] mx-auto" />
+  <figcaption>Final test the day before on location.</figcaption>
+</figure>
+
+## Conclusion
+
+<figure>
+  <video src={vid18_closingNight} controls class="max-h-[80vh] mx-auto" />
+  <figcaption>Final test the day before on location.</figcaption>
+</figure>
