@@ -1,0 +1,47 @@
+---
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon";
+
+const links = [
+  { label: "Instagram", link: "https://www.instagram.com/ralrom/", icon: "mdi:instagram" },
+  { label: "YouTube", link: "https://www.youtube.com/@heyralrom", icon: "mdi:youtube" },
+  { label: "Twitter / X", link: "https://twitter.com/heyralrom", icon: "mdi:twitter" },
+  { label: "TikTok", link: "https://www.tiktok.com/@ralrom", icon: "cib:tiktok" },
+  { label: "Facebook", link: "https://www.facebook.com/profile.php?id=61550850339706", icon: "mdi:facebook" },
+];
+---
+
+<BaseLayout title="RalRom - Full-Stack Web Developer & Aspiring Artist">
+  <div class="container my-16 mx-auto">
+    <div class="flex flex-col gap-6">
+      {
+        links.map((link) => {
+          return (
+            <a
+              data-social={link.label}
+              href={link.link}
+              class="ralrom-social-link rounded-md bg-white/10 px-6 py-4 text-lg font-semibold text-white shadow-sm hover:bg-white/20 flex items-center gap-3"
+            >
+              <Icon name={link.icon} class="w-6 h-6" />
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Find all buttons with the `alert` class on the page.
+  const buttons = document.querySelectorAll(".ralrom-social-link");
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      gtag("event", "social-click", {
+        social: button.getAttribute("data-social"),
+      });
+    });
+  });
+</script>

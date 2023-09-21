@@ -16,7 +16,8 @@
     "paths": {
       "~src/*": ["./src/*"]
     },
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "types": ["@types/gtag.js"]
   },
   "extends": "astro/tsconfigs/strict"
 }
