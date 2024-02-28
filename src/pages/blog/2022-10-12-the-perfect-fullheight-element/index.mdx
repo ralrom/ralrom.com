@@ -63,6 +63,14 @@ We want to use `window.innerHeight` without the jump that it causes when toolbar
 
 First, we need an element in our HTML that will serve as a measuring stick. It can be placed anywhere in the DOM:
 
+```html
+<body>
+  <div id="measuring-stick"></div>
+</body>
+```
+
+With the following CSS:
+
 ```css
 #measuring-stick {
   position: absolute;
