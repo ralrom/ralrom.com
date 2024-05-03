@@ -18,7 +18,7 @@ const { frontmatter, url } = Astro.props;
   </div>
 
   <!-- Post content + comments -->
-  <div class="bg-white dark:bg-slate-900 pt-10 pb-24 relative">
+  <div class="flex-grow bg-white dark:bg-slate-900 pt-10 pb-24 relative ">
     <div class="w-full absolute top-0 left-0 -translate-y-1/2">
       <div class="prose lg:prose-lg mx-auto flex">
         <DarkModeToggle client:only="preact" />
@@ -27,11 +27,11 @@ const { frontmatter, url } = Astro.props;
     <div class="container">
       <div class="prose lg:prose-lg dark:prose-invert mx-auto mb-16">
         <slot />
-        <div class="giscus mt-16"></div>
+        <!-- <div class="giscus mt-16"></div> -->
       </div>
     </div>
   </div>
-
+<!-- 
   <script
     src="https://giscus.app/client.js"
     data-repo="ralrom/ralrom.com"
@@ -48,5 +48,5 @@ const { frontmatter, url } = Astro.props;
     data-loading="lazy"
     crossorigin="anonymous"
     async
-  ></script>
+  ></script> -->
 </BaseLayout>
