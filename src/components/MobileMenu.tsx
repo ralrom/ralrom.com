@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState, useRef } from "preact/hooks";
+import type { ComponentChildren } from "preact";
+import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { nav } from "~src/nav";
 
 const use_setVh = () => {
@@ -24,7 +25,7 @@ const use_setVh = () => {
   }, []);
 };
 
-function MobileMenu() {
+function MobileMenu({ children }: { children: ComponentChildren }) {
   use_setVh();
 
   const [isOpen, set_isOpen] = useState(false);
@@ -46,21 +47,23 @@ function MobileMenu() {
       </button>
 
       <div
-        className={`fixed top-[65px] left-0 w-full transform transition-transform ${
+        className={`fixed top-[65px] left-0 w-full transform transition-transform bg-primary-600 px-8 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ height: `calc(100 * var(--vh))` }}
       >
-        <div className="flex flex-col p-10 gap-10 bg-primary-600 absolute z-10 w-full h-full top-0 right-0">
+        <div className="flex flex-col gap-10 my-10">
           {nav.map((item) => (
             <a
               href={item.href}
-              className={"text-5xl text-center font-medium text-blue-400 hover:text-secondary-500 transition-colors"}
+              className={"text-3xl font-medium text-blue-400 hover:text-secondary-500 transition-colors block"}
             >
               {item.name}
             </a>
           ))}
         </div>
+        <p className="text-xs uppercase text-white opacity-70 mb-2">Social Media</p>
+        {children}
       </div>
     </>
   );

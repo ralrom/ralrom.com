@@ -1,4 +1,7 @@
 ---
+import Icon from "astro-icon";
+import { links } from "~src/links";
+
 interface NavigationItem {
   name: string;
   href: string;
@@ -13,15 +16,32 @@ const navigation: NavigationItem[] = [
 <footer class="bg-primary-600 border-t border-black border-opacity-25 pt-6 pb-6 sm:pb-20 z-20">
   <div class="container">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-      <nav class="flex flex-col sm:flex-row gap-4 sm:gap-6">
-        {
-          navigation.map((item) => (
-            <a href={item.href} class={"font-medium text-blue-400 hover:text-secondary-500 transition-colors"}>
-              <span>{item.name}</span>
-            </a>
-          ))
-        }
-      </nav>
+      <div class="flex flex-col gap-4">
+        <nav class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          {
+            navigation.map((item) => (
+              <a href={item.href} class={"font-medium text-blue-400 hover:text-secondary-500 transition-colors"}>
+                <span>{item.name}</span>
+              </a>
+            ))
+          }
+        </nav>
+        <div class="hidden sm:flex gap-2">
+          {
+            links.map((link) => {
+              return (
+                <a
+                  data-social={link.label}
+                  href={link.link}
+                  class="ralrom-social-link rounded-md bg-white/10 p-2 text-lg font-semibold text-white shadow-sm hover:bg-white/20 flex items-center gap-3"
+                >
+                  <Icon name={link.icon} class="w-6 h-6" />
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
       <span class="text-blue-400 text-sm sm:text-base">&copy; Robert Al-Romhein 2022. All rights reserved.</span>
     </div>
   </div>
