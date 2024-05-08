@@ -1,16 +1,15 @@
-import image from "@astrojs/image";
 import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import m2dx from "astro-m2dx";
+// import m2dx from "astro-m2dx";
 import { defineConfig } from "astro/config";
+import netlify from "@astrojs/netlify";
+import icon from "astro-icon";
 
-/** @type {import('astro-m2dx').Options} */
-import netlify from "@astrojs/netlify/functions";
-const m2dxOptions = {
-  frontmatter: true,
-};
+// const m2dxOptions = {
+//   frontmatter: true,
+// };
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,16 +17,19 @@ export default defineConfig({
   site: "https://www.ralrom.com/",
   integrations: [
     mdx(),
+    icon({
+      include: {
+        mdi: ["instagram", "youtube", "twitter"],
+        cib: ["tiktok"],
+      },
+    }),
     tailwind(),
     preact(),
     sitemap(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
   ],
-  markdown: {
-    extendDefaultPlugins: true,
-    remarkPlugins: [[m2dx, m2dxOptions]],
-  },
+  // markdown: {
+  // extendDefaultPlugins: true,
+  // remarkPlugins: [[m2dx, m2dxOptions]],
+  // },
   adapter: netlify(),
 });

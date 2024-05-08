@@ -1,12 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import dayjs from "dayjs";
 
-const blogPosts = (await Astro.glob("../pages/blog/**/*.(md|mdx)")).filter((post) => !post.frontmatter.draft);
-blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
+const blogPosts = (await getCollection("blog")).filter((post) => !post.data.draft);
+blogPosts.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+
+const { limit } = Astro.props;
 ---
 
 <div class="max-w-3xl mx-auto">
-  <div class="flex items-center not-prose gap-4 sm:gap-0">
+  <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
     <div class="w-20 sm:w-24">
       <img src="/assets/website/portrait-tiny.png" class="rounded-full w-16 ring-2 ring-primary-300" />
     </div>
@@ -14,15 +17,13 @@ blogPosts.sort((a, b) => b.url?.localeCompare(a?.url || "") || 0);
       Writing about web development<br />&amp; self-improvement.
     </h2>
   </div>
-  <div class="mt-8 grid lg:grid-cols-2 gap-12">
+  <div class="space-y-12 sm:ml-24 sm:pl-6 sm:border-l border-blue-400 mt-6">
     {
-      blogPosts.map((post) => (
+      blogPosts.slice(0, limit).map((post) => (
         <article>
-          <span class="text-blue-400">
-            {dayjs(post.url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
-          </span>
-          <a href={post.url?.replace("blog", "blog")} class="hover:opacity-75 not-prose rr-underline">
-            <h3 class="font-medium text-lg lg:text-xl text-white">{post.frontmatter.title}</h3>
+          <span class="text-blue-400">{dayjs(post.id.substring(0, 10)).format("MMM D, YYYY")}</span>
+          <a href={`/blog/${post.slug}`} class="hover:opacity-75 not-prose rr-underline">
+            <h3 class="font-medium text-lg lg:text-xl text-white">{post.data.title}</h3>
           </a>
         </article>
       ))

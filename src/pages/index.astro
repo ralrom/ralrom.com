@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import LetterCascade from "~src/components/LetterCascade.astro";
 import Owl from "~src/components/Owl";
 import PostList from "~src/components/PostList.astro";
@@ -23,6 +24,15 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
       </div>
     </div>
 
-    <PostList />
+    <PostList limit={3} />
+
+    <div class="text-center">
+      <a
+        href="/blog"
+        class="ralrom-social-link rounded-md bg-white/10 px-6 py-4 text-lg font-semibold text-white shadow-sm hover:bg-white/20 inline-flex items-center gap-3"
+      >
+        View all posts
+      </a>
+    </div>
   </div>
 </BaseLayout>

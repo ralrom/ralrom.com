@@ -4,12 +4,12 @@ self.addEventListener("install", (e) => {
       .open("ralrom")
       .then((cache) =>
         cache.addAll([
-          "/assets/logo.svg",
-          "/assets/owl-beak.svg",
-          "/assets/owl-eyes.svg",
-          "/assets/owl-feathers.svg",
-          "/assets/owl-pupils.svg",
-          "/assets/owl-raccoon.svg",
+          "/assets/website/logo.svg",
+          "/assets/website/owl-beak.svg",
+          "/assets/website/owl-eyes.svg",
+          "/assets/website/owl-feathers.svg",
+          "/assets/website/owl-pupils.svg",
+          "/assets/website/owl-raccoon.svg",
         ])
       )
   );
