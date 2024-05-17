@@ -3,7 +3,8 @@ import dayjs from "dayjs";
 import DarkModeToggle from "~src/components/DarkModeToggle";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 
-const { frontmatter, url } = Astro.props;
+const { frontmatter } = Astro.props;
+const { slug } = Astro.params;
 ---
 
 <BaseLayout title={frontmatter.title}>
@@ -11,14 +12,14 @@ const { frontmatter, url } = Astro.props;
   <div class="container py-10">
     <div class="prose lg:prose-lg prose-invert mx-auto">
       <span class="text-blue-400">
-        {dayjs(url?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+        {dayjs(slug?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
       </span>
       <h1 class="font-medium">{frontmatter.title}</h1>
     </div>
   </div>
 
   <!-- Post content + comments -->
-  <div class="flex-grow bg-white dark:bg-slate-900 pt-10 pb-24 relative ">
+  <div class="flex-grow bg-white dark:bg-slate-900 pt-10 pb-24 relative">
     <div class="w-full absolute top-0 left-0 -translate-y-1/2">
       <div class="prose lg:prose-lg mx-auto flex">
         <DarkModeToggle client:only="preact" />
@@ -31,7 +32,7 @@ const { frontmatter, url } = Astro.props;
       </div>
     </div>
   </div>
-<!-- 
+  <!-- 
   <script
     src="https://giscus.app/client.js"
     data-repo="ralrom/ralrom.com"
