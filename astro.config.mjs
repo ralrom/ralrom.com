@@ -15,6 +15,9 @@ import icon from "astro-icon";
 export default defineConfig({
   output: "server",
   site: "https://www.ralrom.com/",
+  image: {
+    domains: ["covers.openlibrary.org"],
+  },
   integrations: [
     mdx(),
     icon({
