@@ -1,8 +1,8 @@
 ---
-import { getCollection } from "astro:content";
 import LetterCascade from "~src/components/LetterCascade.astro";
 import Owl from "~src/components/Owl";
 import PostList from "~src/components/PostList.astro";
+import BookList from "~src/components/BookList.astro";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
 
@@ -23,6 +23,8 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
         <Owl client:load />
       </div>
     </div>
+
+    <BookList />
 
     <PostList limit={3} />
 
