@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "~src/layouts/BaseLayout.astro";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 import { links } from "~src/links";
 ---
 
@@ -24,17 +24,3 @@ import { links } from "~src/links";
     </div>
   </div>
 </BaseLayout>
-
-<script>
-  // Find all buttons with the `alert` class on the page.
-  const buttons = document.querySelectorAll(".ralrom-social-link");
-
-  // Handle clicks on each button.
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      gtag("event", "social-click", {
-        social: button.getAttribute("data-social"),
-      });
-    });
-  });
-</script>

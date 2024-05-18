@@ -76,5 +76,24 @@ const { title } = Astro.props;
       <slot />
     </div>
     <Footer />
+    <script>
+      const socialButtons = document.querySelectorAll(".ralrom-social-link");
+      socialButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          gtag("event", "social-click", {
+            event_label: button.getAttribute("data-social"),
+          });
+        });
+      });
+
+      const affiliateButtons = document.querySelectorAll(".ralrom-affiliate-link");
+      affiliateButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          gtag("event", "affiliate-click", {
+            event_label: button.getAttribute("data-book"),
+          });
+        });
+      });
+    </script>
   </body>
 </html>
