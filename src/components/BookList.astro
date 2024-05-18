@@ -19,7 +19,7 @@ const { limit } = Astro.props;
           <img src={`https://covers.openlibrary.org/b/olid/${book.data.olid}-M.jpg`} class="w-28" />
           <div>
             <h3 class="font-medium text-lg lg:text-xl text-white">{book.data.title}</h3>
-            <div class="text-white/75">{book.data.subtitle}</div>
+            <div class="text-white/75 leading-tight">{book.data.subtitle}</div>
 
             {/* Progress Bar */}
             <div class="text-white/50 text-xs uppercase mt-3 mb-1">Progress</div>
