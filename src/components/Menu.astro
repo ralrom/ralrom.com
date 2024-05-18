@@ -2,7 +2,7 @@
 import { links } from "~src/links";
 import MobileMenu from "./MobileMenu";
 import { nav } from "~src/nav";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 ---
 
 <nav
@@ -56,6 +56,7 @@ import { Icon } from 'astro-icon/components'
             return (
               <a
                 data-social={link.label}
+                aria-label={link.label}
                 href={link.link}
                 class="ralrom-social-link rounded-md bg-white/10 p-2 text-lg font-semibold text-white shadow-sm hover:bg-white/20 flex items-center gap-3"
               >

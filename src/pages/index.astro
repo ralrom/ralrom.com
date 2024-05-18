@@ -7,7 +7,7 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="RalRom - Full-Stack Web Developer & Aspiring Artist">
-  <div class="container space-y-16 mt-10 my-24">
+  <div class="container mt-10 my-24">
     <div class="flex flex-col items-center">
       <div class="text-center space-y-2 relative z-10">
         <h1 class="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold">
@@ -24,11 +24,15 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
       </div>
     </div>
 
-    <BookList />
+    <div class="mt-10">
+      <BookList />
+    </div>
 
-    <PostList limit={3} />
+    <div class="mt-32">
+      <PostList limit={4} />
+    </div>
 
-    <div class="text-center">
+    <div class="text-center mt-8">
       <a
         href="/blog"
         class="ralrom-social-link rounded-md bg-white/10 px-6 py-4 text-lg font-semibold text-white shadow-sm hover:bg-white/20 inline-flex items-center gap-3"

@@ -11,13 +11,17 @@ const { limit } = Astro.props;
 <div class="max-w-3xl mx-auto">
   <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
     <div class="w-20 sm:w-24">
-      <img src="/assets/website/portrait-tiny.png" class="rounded-full w-16 ring-2 ring-primary-300" />
+      <img
+        src="/assets/website/portrait-tiny.png"
+        class="rounded-full w-16 ring-2 ring-primary-300"
+        alt="Stylized portrait of me"
+      />
     </div>
     <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">
       Writing about web development<br />&amp; self-improvement.
     </h2>
   </div>
-  <div class="space-y-12 sm:ml-24 sm:pl-6 sm:border-l border-blue-400 mt-6">
+  <div class="grid lg:grid-cols-2 gap-12 mt-8">
     {
       blogPosts.slice(0, limit).map((post) => (
         <article>
