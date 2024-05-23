@@ -20,7 +20,7 @@ const { limit } = Astro.props;
           <Image
             src={`https://covers.openlibrary.org/b/olid/${book.data.olid}-M.jpg`}
             alt={"Cover of the book titled: " + book.data.title}
-            width={112}
+            class="w-[112px]"
             inferSize={true}
             loading="eager"
           />
