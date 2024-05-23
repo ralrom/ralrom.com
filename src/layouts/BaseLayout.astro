@@ -53,7 +53,7 @@ const { title } = Astro.props;
       }
 
       (function () {
-        const storedTheme = JSON.parse(localStorage.getItem("darkMode") || "");
+        const storedTheme = JSON.parse(localStorage.getItem("darkMode") || "{}");
         if (storedTheme === true || storedTheme === false) {
           setDarkMode(storedTheme);
           return;
