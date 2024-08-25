@@ -4,10 +4,13 @@ import Owl from "~src/components/Owl";
 import PostList from "~src/components/PostList.astro";
 import BookList from "~src/components/BookList.astro";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
+import Button from "~src/components/ui/Button.astro";
+// import ArtworkList from "~src/components/ArtworkList.astro";
 ---
 
 <BaseLayout title="RalRom - Full-Stack Web Developer & Aspiring Artist">
   <div class="container mt-10 my-24">
+    <!-- Hero -->
     <div class="flex flex-col items-center">
       <div class="text-center space-y-2 relative z-10">
         <h1 class="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold">
@@ -24,35 +27,33 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
       </div>
     </div>
 
-    <div class="mt-10">
-      <div class="max-w-5xl mx-auto">
-        <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
-          <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Currently reading</h2>
-        </div>
-        <BookList limit={2} />
-      </div>
+    <!-- Artworks -->
+    <!-- <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+      <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Artwork</h2>
     </div>
+    <ArtworkList limit={10} /> -->
 
-    <div class="text-center mt-8">
-      <a
-        href="/books"
-        class="ralrom-social-link rounded-full bg-[#010612] px-6 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/50 inline-flex items-center gap-3"
-      >
-        View all books
-      </a>
-    </div>
-
+    <!-- Posts -->
     <div class="mt-32">
       <PostList limit={4} />
     </div>
 
-    <div class="text-center mt-8">
-      <a
-        href="/blog"
-        class="ralrom-social-link rounded-full bg-[#010612] px-6 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/50 inline-flex items-center gap-3"
-      >
-        View all posts
-      </a>
+    <div class="text-center mt-10">
+      <Button href="/blog">View all posts</Button>
+    </div>
+
+    <!-- Books -->
+    <div class="mt-32">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+          <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Currently reading</h2>
+        </div>
+        <BookList limit={3} />
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <Button href="/books">View all books</Button>
     </div>
   </div>
 </BaseLayout>
