@@ -25,7 +25,21 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
     </div>
 
     <div class="mt-10">
-      <BookList />
+      <div class="max-w-5xl mx-auto">
+        <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+          <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Currently reading</h2>
+        </div>
+        <BookList limit={2} />
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <a
+        href="/books"
+        class="ralrom-social-link rounded-full bg-[#010612] px-6 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/50 inline-flex items-center gap-3"
+      >
+        View all books
+      </a>
     </div>
 
     <div class="mt-32">
@@ -35,7 +49,7 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
     <div class="text-center mt-8">
       <a
         href="/blog"
-        class="ralrom-social-link rounded-md bg-white/10 px-6 py-4 text-lg font-semibold text-white shadow-sm hover:bg-white/20 inline-flex items-center gap-3"
+        class="ralrom-social-link rounded-full bg-[#010612] px-6 py-2 text-lg font-semibold text-white shadow-sm hover:bg-black/50 inline-flex items-center gap-3"
       >
         View all posts
       </a>

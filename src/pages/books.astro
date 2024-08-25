@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import BookList from "~src/components/BookList.astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+
+const books = (await getCollection("books")).filter((post) => !post.data.draft);
+books.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+---
+
+<BaseLayout title="Books">
+  <div class="container mt-10 my-24">
+    <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+      <h1 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Books</h1>
+    </div>
+    <BookList />
+  </div>
+</BaseLayout>
