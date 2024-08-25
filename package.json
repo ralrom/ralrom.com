@@ -19,7 +19,7 @@
     "@fontsource/poppins": "^4.5.10",
     "@iconify-json/cib": "^1.1.8",
     "@iconify-json/mdi": "^1.1.66",
-    "astro": "^4.7.1",
+    "astro": "^4.14.5",
     "astro-icon": "^1.1.0",
     "astro-m2dx": "^0.7.16",
     "dayjs": "^1.11.11",

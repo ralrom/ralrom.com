@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+
+const artworks = (await getCollection("artworks")).filter((artwork) => !artwork.data.draft);
+artworks.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+
+const { limit } = Astro.props;
+---
+
+<div class="grid gap-2 lg:gap-4 mt-4" style={{ gridTemplateColumns: "repeat(5, 1fr)" }}>
+  {
+    artworks.slice(0, limit).map(async (artwork) => {
+      const { Content } = await artwork.render();
+      return <Content />;
+    })
+  }
+</div>

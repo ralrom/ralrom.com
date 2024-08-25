@@ -1,5 +1,5 @@
 // Import utilities from `astro:content`
-import { z, defineCollection } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 // Define a `type` and `schema` for each collection
 const blogCollection = defineCollection({
@@ -28,8 +28,17 @@ const bookCollection = defineCollection({
     }),
 });
 
+const artworkCollection = defineCollection({
+  type: "content",
+  schema: () =>
+    z.object({
+      draft: z.boolean().optional(),
+    }),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   blog: blogCollection,
   books: bookCollection,
+  artworks: artworkCollection,
 };
