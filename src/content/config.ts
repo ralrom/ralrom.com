@@ -25,6 +25,7 @@ const bookCollection = defineCollection({
       page_current: z.number(),
       page_total: z.number(),
       affiliate_link: z.string(),
+      start_date: z.date(),
     }),
 });
 

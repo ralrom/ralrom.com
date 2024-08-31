@@ -1,10 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import BookList from "~src/components/BookList.astro";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
-
-const books = (await getCollection("books")).filter((post) => !post.data.draft);
-books.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
 ---
 
 <BaseLayout title="Books">

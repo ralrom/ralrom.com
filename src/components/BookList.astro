@@ -1,16 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import dayjs from "dayjs";
 
 const books = (await getCollection("books")).filter((book) => !book.data.draft);
-books.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+books.sort((a, b) => dayjs(b.data.start_date).diff(dayjs(a.data.start_date)));
 
 const { limit } = Astro.props;
 ---
 
 <div class="grid gap-10 lg:gap-20 mt-4" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}>
   {
-    books.slice(0, limit).map((book) => {
+    books.slice(0, limit).map((book, bookIndex) => {
       const isComplete = book.data.page_current === book.data.page_total;
       return (
         // <a href={`/books/${book.slug}`} class="hover:opacity-75 not-prose">
@@ -20,6 +21,7 @@ const { limit } = Astro.props;
             alt={"Cover of the book titled: " + book.data.title}
             class="w-[112px] border-4 border-black/50"
             inferSize={true}
+            loading={bookIndex < 4 ? "eager" : "lazy"}
           />
           <div class="w-full">
             <h3 class="font-medium text-lg lg:text-xl text-white">{book.data.title}</h3>

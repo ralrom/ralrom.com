@@ -8,7 +8,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "static",
   site: "https://www.ralrom.com/",
   image: {
     domains: ["covers.openlibrary.org"],
