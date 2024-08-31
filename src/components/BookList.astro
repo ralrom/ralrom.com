@@ -9,12 +9,11 @@ books.sort((a, b) => dayjs(b.data.start_date).diff(dayjs(a.data.start_date)));
 const { limit } = Astro.props;
 ---
 
-<div class="grid gap-10 lg:gap-20 mt-4" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}>
+<div class="grid gap-10 lg:gap-20 mt-4" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))" }}>
   {
     books.slice(0, limit).map((book, bookIndex) => {
       const isComplete = book.data.page_current === book.data.page_total;
       return (
-        // <a href={`/books/${book.slug}`} class="hover:opacity-75 not-prose">
         <article class="flex items-center space-x-4 xl:space-x-6 w-full">
           <Image
             src={`https://covers.openlibrary.org/b/olid/${book.data.olid}-M.jpg`}
@@ -24,8 +23,8 @@ const { limit } = Astro.props;
             loading={bookIndex < 4 ? "eager" : "lazy"}
           />
           <div class="w-full">
-            <h3 class="font-medium text-lg lg:text-xl text-white">{book.data.title}</h3>
-            <div class="text-white/75 leading-tight">{book.data.subtitle}</div>
+            <h3 class="font-medium text-lg lg:text-xl text-white !leading-tight">{book.data.title}</h3>
+            <div class="text-white/75 leading-tight text-sm">{book.data.subtitle}</div>
 
             {/* Progress Bar */}
             <div class={["text-xs uppercase mt-3 mb-1", isComplete ? "text-green-500" : "text-white/50"].join(" ")}>
@@ -44,13 +43,12 @@ const { limit } = Astro.props;
             <a
               href={book.data.affiliate_link}
               data-book={book.data.title}
-              class="ralrom-affiliate-link mt-6 rounded-full shadow-md bg-[#ffc74d] px-5 py-1.5 font-semibold text-black hover:bg-yellow-600 inline-flex items-center gap-3"
+              class="ralrom-affiliate-link mt-6 rounded-full shadow-md bg-[#ffc74d] px-4 py-1 font-semibold text-black hover:bg-yellow-600 inline-flex items-center gap-3"
             >
-              Buy now
+              Buy on Amazon
             </a>
           </div>
         </article>
-        // </a>
       );
     })
   }
