@@ -1,0 +1,13 @@
+---
+import ArtworkList from "~src/components/ArtworkList.astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Artwork">
+  <div class="container mt-10 my-24">
+    <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+      <h1 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Artwork</h1>
+    </div>
+    <ArtworkList />
+  </div>
+</BaseLayout>

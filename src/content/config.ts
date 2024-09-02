@@ -31,8 +31,10 @@ const bookCollection = defineCollection({
 
 const artworkCollection = defineCollection({
   type: "content",
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
+      title: z.string(),
+      image: image(),
       draft: z.boolean().optional(),
     }),
 });
@@ -41,5 +43,5 @@ const artworkCollection = defineCollection({
 export const collections = {
   blog: blogCollection,
   books: bookCollection,
-  artworks: artworkCollection,
+  artwork: artworkCollection,
 };

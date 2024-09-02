@@ -5,7 +5,7 @@ import PostList from "~src/components/PostList.astro";
 import BookList from "~src/components/BookList.astro";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 import Button from "~src/components/ui/Button.astro";
-// import ArtworkList from "~src/components/ArtworkList.astro";
+import ArtworkList from "~src/components/ArtworkList.astro";
 ---
 
 <BaseLayout title="RalRom - Full-Stack Web Developer & Aspiring Artist">
@@ -28,10 +28,14 @@ import Button from "~src/components/ui/Button.astro";
     </div>
 
     <!-- Artworks -->
-    <!-- <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+    <div class="mt-32 max-w-6xl mx-auto">
       <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Artwork</h2>
+      <ArtworkList limit={8} />
     </div>
-    <ArtworkList limit={10} /> -->
+
+    <div class="text-center mt-10">
+      <Button href="/artwork">View all artwork</Button>
+    </div>
 
     <!-- Posts -->
     <div class="mt-32">
