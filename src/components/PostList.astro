@@ -8,7 +8,7 @@ blogPosts.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
 const { limit } = Astro.props;
 ---
 
-<div class="max-w-3xl mx-auto">
+<div class="max-w-3xl mx-auto px-5">
   <h2 class="font-thin text-accent text-2xl w-[300px]">Blog</h2>
   <p class="text-white sm:text-lg lg:text-4xl max-w-xl">A collection of photos, web dev &amp; personal improvement</p>
   <div class="grid lg:grid-cols-2 gap-12 mt-8">
