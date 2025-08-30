@@ -29,6 +29,7 @@ export default defineConfig({
 
   adapter: netlify({
     edgeMiddleware: true,
+    imageCDN: false,
   }),
 
   vite: {
