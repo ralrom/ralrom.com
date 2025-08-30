@@ -19,14 +19,7 @@ const { limit } = Astro.props;
       {
         artwork.slice(0, limit).map(async (artworkItem) => (
           <a href={`/artwork/${artworkItem.slug}`} class="flex flex-col gap-2 hover:opacity-75">
-            <Image
-              src={artworkItem.data.image}
-              width={620}
-              height={620}
-              alt={artworkItem.data.title}
-              layout="constrained"
-              fit="cover"
-            />
+            <Image src={artworkItem.data.image} width={620} height={620} alt={artworkItem.data.title} fit="cover" />
             <div class="border-l border-white/10 pl-5 mt-4">
               <p class="text-lg lg:text-xl text-white font-semibold">{artworkItem.data.title}</p>
               <p class="text-accent font-thin">{artworkItem.data.medium}</p>
