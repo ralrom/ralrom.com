@@ -15,7 +15,13 @@ const { limit } = Astro.props;
   {
     artwork.slice(0, limit).map(async (artworkItem) => (
       <a href={`/artwork/${artworkItem.slug}`} class="hover:opacity-75 not-prose rr-underline">
-        <Image src={artworkItem.data.image} alt={artworkItem.data.title} class="object-cover w-full h-full rounded" />
+        <Image
+          src={artworkItem.data.image}
+          width={250}
+          height={250}
+          alt={artworkItem.data.title}
+          class="object-cover w-full h-full rounded"
+        />
       </a>
     ))
   }
