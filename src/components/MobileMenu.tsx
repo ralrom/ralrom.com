@@ -47,7 +47,7 @@ function MobileMenu({ children }: { children: ComponentChildren }) {
       </button>
 
       <div
-        className={`fixed top-[65px] left-0 w-full transform transition-transform bg-primary-600 px-8 ${
+        className={`fixed top-[65px] left-0 w-full transform transition-transform bg-background px-8 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ height: `calc(100 * var(--vh))` }}
@@ -56,7 +56,7 @@ function MobileMenu({ children }: { children: ComponentChildren }) {
           {nav.map((item) => (
             <a
               href={item.href}
-              className={"text-3xl font-medium text-blue-400 hover:text-secondary-500 transition-colors block"}
+              className={"text-3xl font-medium text-accent hover:text-secondary-500 transition-colors block"}
             >
               {item.name}
             </a>

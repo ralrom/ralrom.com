@@ -1,0 +1,26 @@
+---
+import dayjs from "dayjs";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+const { slug } = Astro.params;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <!-- Post Header -->
+  <div class="container py-10 grid grid-cols-3 gap-24 relative">
+    <div class="prose lg:prose-lg prose-invert col-span-2">
+      <slot />
+    </div>
+
+    <div class="relative">
+      <div class="sticky top-30">
+        <span class="text-accent font-thin">
+          {dayjs(slug?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+        </span>
+        <h1 class="font-medium text-white sm:text-lg lg:text-3xl mb-4">{frontmatter.title}</h1>
+        {frontmatter.medium && <p class="font-thin text-white lg:text-lg">Medium: {frontmatter.medium}</p>}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

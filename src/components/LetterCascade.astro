@@ -5,27 +5,37 @@ interface Props {
 }
 
 const { text, delay = "0ms" } = Astro.props;
+let letterIndex = 0;
 ---
 
-<span>
+<div class="whitespace-nowrap">
   {
-    text
-      .split("")
-      .map((letter, index) => (
-        <span
-          class="letter inline-block"
-          style={`--animation-order: ${index}; --animation-delay: ${delay}`}
-          set:html={letter === " " ? "&nbsp;" : letter}
-        />
-      ))
+    text.split(" ").map((word) => {
+      return (
+        <>
+          <div class="inline-block">
+            {word.split("").map((letter) => {
+              letterIndex++;
+              return (
+                <span
+                  class="letter inline-block"
+                  style={`--animation-order: ${letterIndex}; --animation-delay: ${delay}`}
+                  set:html={letter}
+                />
+              );
+            })}
+          </div>
+        </>
+      );
+    })
   }
-</span>
+</div>
 
 <style>
   @keyframes slideDown {
     0% {
       opacity: 0;
-      transform: translateY(-0.45em);
+      transform: translateY(-0.6em);
     }
 
     100% {
@@ -35,8 +45,8 @@ const { text, delay = "0ms" } = Astro.props;
   }
 
   .letter {
-    animation: slideDown 0.2s;
+    animation: slideDown 0.5s ease;
     animation-fill-mode: backwards;
-    animation-delay: calc(var(--animation-order) * 20ms + var(--animation-delay));
+    animation-delay: calc(var(--animation-order) * 70ms + var(--animation-delay));
   }
 </style>

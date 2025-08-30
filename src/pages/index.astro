@@ -1,63 +1,55 @@
 ---
+import ArtworkList from "~src/components/ArtworkList.astro";
 import LetterCascade from "~src/components/LetterCascade.astro";
 import Owl from "~src/components/Owl";
 import PostList from "~src/components/PostList.astro";
-import BookList from "~src/components/BookList.astro";
-import BaseLayout from "~src/layouts/BaseLayout.astro";
 import Button from "~src/components/ui/Button.astro";
-import ArtworkList from "~src/components/ArtworkList.astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="RalRom - Full-Stack Web Developer & Aspiring Artist">
-  <div class="container mt-24 my-24">
+  <div class="container py-24 relative">
     <!-- Hero -->
-    <div class="flex flex-col items-center">
-      <div class="text-center space-y-2 relative z-10">
-        <h1 class="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold">
-          <LetterCascade text="Robert Al-Romhein" />
-        </h1>
-        <p class="text-primary-200 text-lg sm:text-xl xl:text-2xl font-medium !leading-none">
-          <LetterCascade text="Full-Stack Web Developer" delay="0.2s" />
-          <br />
-          <LetterCascade text="& Aspiring Artist" delay="0.5s" />
-        </p>
+    <div class="flex flex-col lg:flex-row items-center gap-10 relative mb-24">
+      <div class="flex-grow text-center lg:text-left">
+        <div class="text-3xl font-thin leading-none mb-4 text-accent">
+          <LetterCascade text="Hello! I'm Robert" />
+        </div>
+        <div class="text-white text-[5rem] lg:text-[7rem] xl:text-[9rem] font-semibold leading-none">
+          <LetterCascade text="Web Dev" delay="0.3s" /><LetterCascade text="& Artist" delay="0.2s" />
+        </div>
       </div>
-      <div style={{ touchAction: "pan-y" }} class="aspect-[1_/_0.8]">
+      <div style={{ touchAction: "pan-y" }} class="aspect-[1_/_0.8] min-w-[200px] shrink">
         <Owl client:load />
       </div>
     </div>
+  </div>
 
-    <!-- Artworks -->
-    <div class="mt-32 max-w-6xl mx-auto">
-      <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Artwork</h2>
-      <ArtworkList limit={8} />
-    </div>
+  <!-- Artworks -->
+  <ArtworkList limit={4} />
 
-    <div class="text-center mt-10">
-      <Button href="/artwork">View all artwork</Button>
-    </div>
+  <div class="text-center mt-10">
+    <Button href="/artwork">View all artwork</Button>
+  </div>
 
-    <!-- Posts -->
-    <div class="mt-32">
-      <PostList limit={4} />
-    </div>
+  <!-- Posts -->
+  <div class="mt-32">
+    <PostList limit={4} />
+  </div>
 
-    <div class="text-center mt-10">
-      <Button href="/blog">View all posts</Button>
-    </div>
+  <div class="text-center mt-10">
+    <Button href="/blog">View all posts</Button>
+  </div>
 
-    <!-- Books -->
-    <div class="mt-32">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
-          <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Currently reading</h2>
-        </div>
-        <BookList limit={3} />
+  <!-- Books -->
+  <!-- <div class="mt-32">
+      <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
+        <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Currently reading</h2>
       </div>
+      <BookList limit={3} />
     </div>
 
     <div class="text-center mt-10">
       <Button href="/books">View all books</Button>
-    </div>
-  </div>
+    </div> -->
 </BaseLayout>

@@ -34,35 +34,6 @@ export default function Tilt({ children, className }: { children: ComponentChild
     update({ pageX: window.innerWidth / 2, pageY: window.innerHeight / 2 });
   }, []);
 
-  // function enableTilt() {
-  //   function handleOrientation(event: DeviceOrientationEvent) {
-  //     const alpha = event.alpha;
-  //     const beta = event.beta;
-  //     const gamma = event.gamma;
-
-  //     set_data({ alpha, beta, gamma });
-
-  //     // @ts-ignore
-  //     update({ pageX: (45 - gamma) * 14, pageY: (90 - beta) * 14 });
-  //   }
-
-  //   // @ts-ignore
-  //   if (typeof DeviceMotionEvent !== "undefined" && typeof DeviceMotionEvent.requestPermission === "function") {
-  //     // @ts-ignore
-  //     DeviceMotionEvent.requestPermission()
-  //       .then((response: any) => {
-  //         if (response == "granted") {
-  //           window.addEventListener("deviceorientation", handleOrientation);
-  //         }
-  //       })
-  //       .catch(console.error);
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("deviceorientation", handleOrientation);
-  //   };
-  // }
-
   function update(event: MouseEvent) {
     const tilt = tiltRef.current;
     if (!tilt) return;

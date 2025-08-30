@@ -8,21 +8,33 @@ artwork.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
 const { limit } = Astro.props;
 ---
 
-<div
-  class="grid gap-4 mt-4"
-  style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gridAutoRows: "250px" }}
->
-  {
-    artwork.slice(0, limit).map(async (artworkItem) => (
-      <a href={`/artwork/${artworkItem.slug}`} class="hover:opacity-75 not-prose rr-underline">
-        <Image
-          src={artworkItem.data.image}
-          width={250}
-          height={250}
-          alt={artworkItem.data.title}
-          class="object-cover w-full h-full rounded"
-        />
-      </a>
-    ))
-  }
+<div class="px-5">
+  <div class="large-container">
+    <div class="container mb-12">
+      <h2 class="font-thin text-accent text-2xl w-[300px]">Artwork</h2>
+      <p class="text-white sm:text-lg lg:text-4xl max-w-xl">A Showcase of My Artwork, Hobby Projects &amp; Learning</p>
+    </div>
+
+    <div class="grid gap-x-10 gap-y-24 mt-4 md:grid-cols-2 lg:grid-cols-3">
+      {
+        artwork.slice(0, limit).map(async (artworkItem) => (
+          <a href={`/artwork/${artworkItem.slug}`} class="hover:opacity-75 gap-5 lg:nth-4:hidden">
+            <Image
+              fit="cover"
+              layout="constrained"
+              src={artworkItem.data.image}
+              width={620}
+              height={620}
+              alt={artworkItem.data.title}
+              class="object-cover w-full"
+            />
+            <div class="border-l border-white/10 pl-5 mt-4">
+              <p class="text-lg lg:text-xl text-white font-semibold">{artworkItem.data.title}</p>
+              <p class="text-accent font-thin">{artworkItem.data.medium}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </div>

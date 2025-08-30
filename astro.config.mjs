@@ -1,18 +1,20 @@
 import mdx from "@astrojs/mdx";
+import netlify from "@astrojs/netlify";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
-import netlify from "@astrojs/netlify";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
   output: "static",
   site: "https://www.ralrom.com/",
+
   image: {
     domains: ["covers.openlibrary.org"],
   },
+
   integrations: [
     mdx(),
     icon({
@@ -21,9 +23,13 @@ export default defineConfig({
         cib: ["tiktok"],
       },
     }),
-    tailwind(),
     preact(),
     sitemap(),
   ],
+
   adapter: netlify(),
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

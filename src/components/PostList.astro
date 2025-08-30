@@ -9,16 +9,18 @@ const { limit } = Astro.props;
 ---
 
 <div class="max-w-3xl mx-auto">
-  <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Blog</h2>
+  <h2 class="font-thin text-accent text-2xl w-[300px]">Blog</h2>
+  <p class="text-white sm:text-lg lg:text-4xl max-w-xl">A collection of photos, web dev &amp; personal improvement</p>
   <div class="grid lg:grid-cols-2 gap-12 mt-8">
     {
       blogPosts.slice(0, limit).map((post) => (
-        <article>
-          <span class="text-blue-400">{dayjs(post.id.substring(0, 10)).format("MMM D, YYYY")}</span>
-          <a href={`/blog/${post.slug}`} class="hover:opacity-75 not-prose rr-underline">
-            <h3 class="font-medium text-lg lg:text-xl text-white">{post.data.title}</h3>
-          </a>
-        </article>
+        <a href={`/blog/${post.slug}`} class="hover:opacity-75 not-prose">
+          <article class="relative">
+            <p class="text-accent absolute top-0 -left-2 -translate-x-full opacity-50">&bull;</p>
+            <span class="text-accent font-thin">{dayjs(post.id.substring(0, 10)).format("MMM D, YYYY")}</span>
+            <h3 class="text-lg lg:text-xl text-white font-thin">{post.data.title}</h3>
+          </article>
+        </a>
       ))
     }
   </div>

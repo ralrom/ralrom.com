@@ -35,6 +35,7 @@ const artworkCollection = defineCollection({
     z.object({
       title: z.string(),
       image: image(),
+      medium: z.string().optional(),
       draft: z.boolean().optional(),
     }),
 });

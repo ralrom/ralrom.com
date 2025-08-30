@@ -16,10 +16,11 @@ const { limit } = Astro.props;
       return (
         <article class="flex items-center space-x-4 xl:space-x-6 w-full">
           <Image
+            fit="contain"
+            layout="constrained"
             src={`https://covers.openlibrary.org/b/olid/${book.data.olid}-M.jpg`}
             alt={"Cover of the book titled: " + book.data.title}
             class="w-[112px] border-4 border-black/50"
-            width={112}
             inferSize={true}
             loading={bookIndex < 4 ? "eager" : "lazy"}
           />
