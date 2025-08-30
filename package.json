@@ -21,7 +21,6 @@
     "@tailwindcss/vite": "^4.1.12",
     "astro": "^5.13.5",
     "astro-icon": "^1.1.0",
-    "astro-m2dx": "^0.7.16",
     "dayjs": "^1.11.11",
     "preact": "^10.21.0",
     "sharp": "^0.33.3",
