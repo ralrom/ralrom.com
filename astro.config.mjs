@@ -27,11 +27,6 @@ export default defineConfig({
     sitemap(),
   ],
 
-  adapter: netlify({
-    edgeMiddleware: true,
-    imageCDN: false,
-  }),
-
   vite: {
     plugins: [tailwindcss()],
   },
