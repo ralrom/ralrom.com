@@ -12,7 +12,7 @@ export default defineConfig({
   site: "https://www.ralrom.com/",
 
   image: {
-    domains: ["covers.openlibrary.org"],
+    domains: ["covers.openlibrary.org", "ralrom.com"],
   },
 
   integrations: [
@@ -27,7 +27,9 @@ export default defineConfig({
     sitemap(),
   ],
 
-  adapter: netlify(),
+  adapter: netlify({
+    edgeMiddleware: true,
+  }),
 
   vite: {
     plugins: [tailwindcss()],
