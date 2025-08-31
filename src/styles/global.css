@@ -26,12 +26,6 @@ body {
   min-height: 100%;
 }
 
-.rr-underline {
-  text-decoration: underline;
-  text-decoration-color: #ffc74d;
-  text-underline-position: under;
-}
-
 iframe {
   outline: none !important;
 }
