@@ -1,8 +1,11 @@
 ---
 import { getCollection } from "astro:content";
+import { getSecret } from "astro:env/server";
 import dayjs from "dayjs";
 
-const blogPosts = (await getCollection("blog")).filter((post) => !post.data.draft);
+const blogPosts = (await getCollection("blog")).filter((post) =>
+  getSecret("NODE_ENV") === "development" ? true : !post.data.draft
+);
 blogPosts.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
 
 const { limit } = Astro.props;
