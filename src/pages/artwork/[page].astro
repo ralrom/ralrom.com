@@ -1,0 +1,23 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { GetStaticPathsOptions } from "astro";
+
+interface Props {
+  page: {
+    data: CollectionEntry<"artwork">[];
+  };
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const artwork = (await getCollection("artwork")).filter((artwork) => !artwork.data.draft);
+  artwork.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+
+  return paginate(artwork, { pageSize: 30 });
+}
+
+const { page } = Astro.props as Props;
+---
+
+<ul>
+  {page.data.map((artwork) => <li>{artwork.data.title}</li>)}
+</ul>
