@@ -2,6 +2,13 @@
 
 @plugin "@tailwindcss/typography";
 
+.prose a,
+.description a {
+  font-weight: 200;
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 @theme {
   --color-background: #00060c;
   --color-accent: #ffc74d;

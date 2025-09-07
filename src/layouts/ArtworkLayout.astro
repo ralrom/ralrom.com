@@ -22,7 +22,11 @@ console.log(frontmatter);
         </span>
         <h1 class="font-medium text-white text-3xl mb-4">{frontmatter.title}</h1>
         {frontmatter.medium && <p class="font-thin text-white lg:text-lg">Medium: {frontmatter.medium}</p>}
-        {frontmatter.description && <div class="font-thin text-white mt-12"> {frontmatter.description}</div>}
+        {
+          frontmatter.description && (
+            <div class="font-thin text-white mt-12 description" set:html={frontmatter.description} />
+          )
+        }
       </div>
     </div>
   </div>
