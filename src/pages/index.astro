@@ -15,7 +15,9 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
         <div class="text-3xl font-thin leading-none mb-4 text-accent">
           <LetterCascade text="Hello! I'm Robert" />
         </div>
-        <div class="text-white text-[4rem] sm:text-[5rem] lg:text-[7rem] xl:text-[9rem] font-semibold leading-none">
+        <div
+          class="text-text-primary text-[4rem] sm:text-[5rem] lg:text-[7rem] xl:text-[9rem] font-semibold leading-none"
+        >
           <LetterCascade text="Web Dev" delay="0.3s" /><LetterCascade text="& Artist" delay="0.2s" />
         </div>
       </div>
@@ -44,7 +46,7 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
   <!-- Books -->
   <!-- <div class="mt-32">
       <div class="flex sm:items-center not-prose flex-col sm:flex-row gap-4 sm:gap-0">
-        <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-white">Currently reading</h2>
+        <h2 class="text-lg sm:text-3xl lg:text-4xl font-semibold text-text-primary">Currently reading</h2>
       </div>
       <BookList limit={3} />
     </div>

@@ -44,30 +44,6 @@ const { title } = Astro.props;
           console.log("Service Worker Registered");
         });
       }
-
-      function setDarkMode(isDark: any) {
-        localStorage.setItem("darkMode", isDark.toString());
-        if (isDark) {
-          document.body.classList.add("dark");
-        } else {
-          document.body.classList.remove("dark");
-        }
-      }
-
-      (function () {
-        const storedTheme = JSON.parse(localStorage.getItem("darkMode") || "{}");
-        if (storedTheme === true || storedTheme === false) {
-          setDarkMode(storedTheme);
-          return;
-        }
-
-        const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-        if (prefersDarkMode.matches) {
-          setDarkMode(true);
-        } else {
-          setDarkMode(false);
-        }
-      })();
     </script>
   </head>
   <body>

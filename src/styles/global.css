@@ -10,8 +10,34 @@
 }
 
 @theme {
-  --color-background: #00060c;
+  --color-background: var(--color-background);
+  --color-accent: var(--color-accent);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-border: var(--color-border);
+  --color-surface: var(--color-surface);
+}
+
+/* Light mode colors (default) */
+:root {
+  --color-background: #fafafa;
   --color-accent: #ffc74d;
+  --color-text-primary: #000000;
+  --color-text-secondary: #666666;
+  --color-border: #e5e5e5;
+  --color-surface: #f8f8f8;
+}
+
+/* Dark mode colors - applied when user prefers dark or when .dark class is present */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #00060c;
+    --color-accent: #ffc74d;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-border: #333333;
+    --color-surface: #1a1a1a;
+  }
 }
 
 @utility container {
@@ -72,7 +98,7 @@ iframe {
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-  background-color: #fff;
+  background-color: var(--color-text-primary);
 }
 
 .hamburger-box {
@@ -92,7 +118,7 @@ iframe {
 .hamburger-inner::after {
   width: 30px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--color-text-primary);
   border-radius: 4px;
   position: absolute;
   transition-property: transform;

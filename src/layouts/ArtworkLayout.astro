@@ -11,7 +11,7 @@ console.log(frontmatter);
 <BaseLayout title={frontmatter.title}>
   <!-- Post Header -->
   <div class="container py-10 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 relative">
-    <div class="prose lg:prose-lg prose-invert col-span-2 order-2 md:order-1">
+    <div class="prose lg:prose-lg dark:prose-invert col-span-2 order-2 md:order-1">
       <slot />
     </div>
 
@@ -20,11 +20,11 @@ console.log(frontmatter);
         <span class="text-accent font-thin text-sm">
           {dayjs(slug?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
         </span>
-        <h1 class="font-medium text-white text-3xl mb-4">{frontmatter.title}</h1>
-        {frontmatter.medium && <p class="font-thin text-white lg:text-lg">Medium: {frontmatter.medium}</p>}
+        <h1 class="font-medium text-text-primary text-3xl mb-4">{frontmatter.title}</h1>
+        {frontmatter.medium && <p class="font-thin text-text-primary lg:text-lg">Medium: {frontmatter.medium}</p>}
         {
           frontmatter.description && (
-            <div class="font-thin text-white mt-12 description" set:html={frontmatter.description} />
+            <div class="font-thin text-text-primary mt-12 description" set:html={frontmatter.description} />
           )
         }
       </div>

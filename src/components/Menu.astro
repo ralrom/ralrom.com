@@ -3,7 +3,7 @@ import { links } from "~src/links";
 import MobileMenu from "./MobileMenu";
 import { nav, type NavItem } from "~src/nav";
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
+import Logo from "~src/assets/logo.svg";
 
 const { pathname } = Astro.url;
 
@@ -17,7 +17,7 @@ const isActiveLink = (item: NavItem) => {
 ---
 
 <nav
-  class="fixed border-b bg-background/80 backdrop-blur-md border-white/10 py-3 w-full z-50 top-0 left-0"
+  class="fixed border-b bg-background/90 dark:bg-background/80 backdrop-blur-md border-border py-3 w-full z-50 top-0 left-0"
   style={{
     transform: "translateZ(99999px)",
   }}
@@ -25,14 +25,8 @@ const isActiveLink = (item: NavItem) => {
   <div class="container">
     <div class="flex items-center justify-between">
       <a class="flex-shrink-0 group flex items-center" href="/">
-        <Image
-          width={44}
-          height={44}
-          class="group-hover:rotate-90 transition-transform"
-          src="/assets/website/logo.svg"
-          alt="RalRom"
-        />
-        <div class="text-2xl font-semibold ml-2 text-white">RalRom</div>
+        <Logo width={44} height={44} class="group-hover:rotate-90 transition-transform text-text-primary" />
+        <div class="text-2xl font-semibold ml-2 text-text-primary">RalRom</div>
       </a>
 
       <MobileMenu client:only="preact">
@@ -43,7 +37,7 @@ const isActiveLink = (item: NavItem) => {
                 <a
                   data-social={link.label}
                   href={link.link}
-                  class="ralrom-social-link rounded-md bg-white/10 px-6 py-4 text-lg font-semibold text-white shadow-sm hover:bg-white/20 flex items-center gap-3"
+                  class="ralrom-social-link rounded-md bg-surface px-6 py-4 text-lg font-semibold text-text-primary hover:bg-border flex items-center gap-3"
                 >
                   <Icon name={link.icon} class="w-6 h-6" />
                   {link.label}
@@ -61,7 +55,7 @@ const isActiveLink = (item: NavItem) => {
               href={item.href}
               class={[
                 "hover:text-accent transition-colors font-thin",
-                isActiveLink(item) ? "text-accent underline underline-offset-8" : "text-white",
+                isActiveLink(item) ? "text-accent underline underline-offset-8" : "text-text-primary",
               ].join(" ")}
             >
               {item.name}
@@ -77,7 +71,7 @@ const isActiveLink = (item: NavItem) => {
                 data-social={link.label}
                 aria-label={link.label}
                 href={link.link}
-                class="ralrom-social-link transition-all rounded-full text-lg font-semibold text-white shadow-sm hover:text-accent hover:scale-125 flex items-center gap-3"
+                class="ralrom-social-link transition-all rounded-full text-lg font-semibold text-text-primary hover:text-accent hover:scale-125 flex items-center gap-3"
               >
                 <Icon name={link.icon} class="w-6 h-6" />
               </a>
