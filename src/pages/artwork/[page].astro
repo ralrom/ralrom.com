@@ -1,11 +1,12 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import type { GetStaticPathsOptions } from "astro";
+import type { GetStaticPathsOptions, Page } from "astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+import ArtworkList from "~src/components/ArtworkList.astro";
+import Pagination from "~src/components/Pagination.astro";
 
 interface Props {
-  page: {
-    data: CollectionEntry<"artwork">[];
-  };
+  page: Page<CollectionEntry<"artwork">>;
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
@@ -15,9 +16,16 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(artwork, { pageSize: 30 });
 }
 
-const { page } = Astro.props as Props;
+const { page } = Astro.props;
 ---
 
-<ul>
-  {page.data.map((artwork) => <li>{artwork.data.title}</li>)}
-</ul>
+<BaseLayout title="Artwork">
+  <div class="mt-24">
+    <ArtworkList artworkItems={page.data} />
+    <Pagination
+      currentPage={page.currentPage}
+      lastPage={page.lastPage}
+      url={page.url}
+    />
+  </div>
+</BaseLayout>

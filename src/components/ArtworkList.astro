@@ -1,11 +1,23 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
-const artwork = (await getCollection("artwork")).filter((artwork) => !artwork.data.draft);
-artwork.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+interface Props {
+  limit?: number;
+  artworkItems?: CollectionEntry<"artwork">[];
+}
 
-const { limit } = Astro.props;
+const { limit, artworkItems } = Astro.props;
+
+// If artworkItems are passed (from pagination), use those
+// Otherwise fetch all artwork (for homepage or non-paginated views)
+let artwork: CollectionEntry<"artwork">[];
+if (artworkItems) {
+  artwork = artworkItems;
+} else {
+  artwork = (await getCollection("artwork")).filter((artwork) => !artwork.data.draft);
+  artwork.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
+}
 ---
 
 <div class="large-container">
@@ -18,7 +30,17 @@ const { limit } = Astro.props;
     {
       artwork.slice(0, limit).map(async (artworkItem) => (
         <a href={`/artwork/${artworkItem.slug}`} class="flex flex-col gap-2 hover:opacity-75">
-          <Image src={artworkItem.data.image} width={620} height={620} alt={artworkItem.data.title} fit="cover" />
+          <div class="aspect-square">
+            <Image
+              src={artworkItem.data.image}
+              width={620}
+              height={620}
+              alt={artworkItem.data.title}
+              fit="cover"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+
           <div class="border-l border-border pl-5 mt-4">
             <p class="text-lg lg:text-xl text-text-primary font-semibold">{artworkItem.data.title}</p>
             <p class="text-accent font-thin text-sm">{artworkItem.data.medium}</p>

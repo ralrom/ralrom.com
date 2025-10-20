@@ -3,7 +3,7 @@ title: "Beyond the Bloat: How I Built a Sub-14kB Feedback Widget in Vanilla JS"
 draft: true
 ---
 
-# Is the Web Broken? A Developer's Plea for Performance and Simplicity
+## Is the Web Broken? A Developer's Plea for Performance and Simplicity
 
 ## Introduction: The Unseen Weight of the Modern Web
 

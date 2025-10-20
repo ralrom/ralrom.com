@@ -4,30 +4,19 @@ import BaseLayout from "~src/layouts/BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
-
-console.log(frontmatter);
 ---
 
 <BaseLayout title={frontmatter.title}>
   <!-- Post Header -->
-  <div class="container py-10 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 relative">
-    <div class="prose lg:prose-lg dark:prose-invert col-span-2 order-2 md:order-1">
-      <slot />
-    </div>
+  <div class="container py-10">
+    <div class="prose lg:prose-lg dark:prose-invert mx-auto">
+      <span class="font-thin text-accent text-2xl">
+        {dayjs(slug?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
+      </span>
+      <h1 class="text-text-primary sm:text-lg lg:text-4xl max-w-xl">{frontmatter.title}</h1>
+      {frontmatter.medium && <p class="font-thin text-text-primary lg:text-lg">Medium: {frontmatter.medium}</p>}
 
-    <div class="relative col-span-1 order-1 md:order-2">
-      <div class="sticky top-30">
-        <span class="text-accent font-thin text-sm">
-          {dayjs(slug?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
-        </span>
-        <h1 class="font-medium text-text-primary text-3xl mb-4">{frontmatter.title}</h1>
-        {frontmatter.medium && <p class="font-thin text-text-primary lg:text-lg">Medium: {frontmatter.medium}</p>}
-        {
-          frontmatter.description && (
-            <div class="font-thin text-text-primary mt-12 description" set:html={frontmatter.description} />
-          )
-        }
-      </div>
+      <slot />
     </div>
   </div>
 </BaseLayout>

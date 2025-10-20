@@ -1,0 +1,83 @@
+---
+import Button from "~src/components/ui/Button.astro";
+
+interface Props {
+  currentPage: number;
+  lastPage: number;
+  url: {
+    prev?: string;
+    next?: string;
+  };
+}
+
+const { currentPage, lastPage, url } = Astro.props;
+
+// Generate page numbers to display
+const generatePageNumbers = () => {
+  const delta = 2; // Number of pages to show on each side of current page
+  const range: (number | string)[] = [];
+
+  for (let i = 1; i <= lastPage; i++) {
+    if (
+      i === 1 || // Always show first page
+      i === lastPage || // Always show last page
+      (i >= currentPage - delta && i <= currentPage + delta) // Show pages near current
+    ) {
+      range.push(i);
+    } else if (range[range.length - 1] !== '...') {
+      range.push('...');
+    }
+  }
+
+  return range;
+};
+
+const pages = generatePageNumbers();
+---
+
+<nav class="flex items-center justify-center gap-4 mt-12" aria-label="Pagination">
+  {url.prev ? (
+    <Button href={url.prev} size="sm">
+      Previous
+    </Button>
+  ) : (
+    <span class="bg-black ring rounded-full ring-white/10 px-5 py-2 text-base font-thin text-white inline-flex items-center gap-3 opacity-50 cursor-not-allowed">
+      Previous
+    </span>
+  )}
+
+  <div class="flex gap-2 items-center">
+    {pages.map((page) => {
+      if (page === '...') {
+        return <span class="px-3 py-2 text-text-secondary">...</span>;
+      }
+
+      const pageNum = page as number;
+      const isCurrentPage = pageNum === currentPage;
+      const href = pageNum === 1 ? '/artwork' : `/artwork/${pageNum}`;
+
+      return isCurrentPage ? (
+        <span
+          class="bg-accent text-background-primary ring rounded-full ring-white/10 px-5 py-2 text-base font-semibold inline-flex items-center justify-center min-w-[2.5rem]"
+          aria-current="page"
+        >
+          {pageNum}
+        </span>
+      ) : (
+        <Button href={href} size="sm">
+          {pageNum}
+        </Button>
+      );
+    })}
+  </div>
+
+  {url.next ? (
+    <Button href={url.next} size="sm">
+      Next
+    </Button>
+  ) : (
+    <span class="bg-black ring rounded-full ring-white/10 px-5 py-2 text-base font-thin text-white inline-flex items-center gap-3 opacity-50 cursor-not-allowed">
+      Next
+    </span>
+  )}
+</nav>

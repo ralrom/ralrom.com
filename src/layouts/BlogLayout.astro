@@ -1,6 +1,5 @@
 ---
 import dayjs from "dayjs";
-import DarkModeToggle from "~src/components/DarkModeToggle";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -14,7 +13,7 @@ const { slug } = Astro.params;
       <span class="font-thin text-accent text-2xl">
         {dayjs(slug?.replace("/blog/", "").substring(0, 10)).format("MMM D, YYYY")}
       </span>
-      <h1 class="text-text-primary sm:text-lg lg:text-4xl max-w-xl font-thin">{frontmatter.title}</h1>
+      <h1 class="text-text-primary sm:text-lg lg:text-4xl max-w-xl">{frontmatter.title}</h1>
 
       <slot />
       <!-- <div class="giscus mt-16"></div> -->

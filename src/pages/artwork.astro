@@ -1,8 +1,4 @@
 ---
-import ArtworkList from "~src/components/ArtworkList.astro";
-import BaseLayout from "~src/layouts/BaseLayout.astro";
+// Redirect to first page of paginated artwork
+return Astro.redirect("/artwork/1");
 ---
-
-<BaseLayout title="Artwork">
-  <div class="mt-24"><ArtworkList /></div>
-</BaseLayout>

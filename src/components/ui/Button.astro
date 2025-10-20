@@ -1,10 +1,29 @@
 ---
-const { href } = Astro.props;
+interface Props {
+  href: string;
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'ghost';
+}
+
+const { href, size = 'lg', variant = 'primary' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'px-5 py-2 text-base',
+  md: 'px-8 py-3 text-lg',
+  lg: 'px-10 py-4 text-lg',
+};
+
+const variantClasses = {
+  primary: 'bg-black hover:bg-accent hover:text-black',
+  ghost: 'bg-transparent hover:bg-white/10',
+};
+
+const buttonClass = `ralrom-social-link ring rounded-full ring-white/10 font-thin text-white inline-flex items-center gap-3 transition-all duration-300 ${sizeClasses[size]} ${variantClasses[variant]}`;
 ---
 
 <a
   href={href}
-  class="ralrom-social-link bg-black ring rounded-full ring-white/10 px-10 py-4 text-lg font-thin text-white inline-flex items-center gap-3 transition-all duration-300 hover:bg-accent hover:text-black"
+  class={buttonClass}
 >
   <slot />
 </a>
