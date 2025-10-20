@@ -54,7 +54,7 @@ const pages = generatePageNumbers();
 
       const pageNum = page as number;
       const isCurrentPage = pageNum === currentPage;
-      const href = pageNum === 1 ? '/artwork' : `/artwork/${pageNum}`;
+      const href = `/artwork/${pageNum}`;
 
       return isCurrentPage ? (
         <span
