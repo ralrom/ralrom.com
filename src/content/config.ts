@@ -1,6 +1,5 @@
 // Import utilities from `astro:content`
 import { defineCollection, z } from "astro:content";
-import MarkdownIt from "markdown-it";
 
 // Define a `type` and `schema` for each collection
 const blogCollection = defineCollection({
@@ -37,10 +36,6 @@ const artworkCollection = defineCollection({
       title: z.string(),
       image: image(),
       medium: z.string().optional(),
-      description: z
-        .string()
-        .optional()
-        .transform((val) => (val ? new MarkdownIt().render(val) : undefined)),
       draft: z.boolean().optional(),
     }),
 });
