@@ -26,7 +26,7 @@ if (artworkItems) {
     <p class="text-text-primary sm:text-lg lg:text-4xl max-w-xl">A Showcase of My Artwork, Hobby Projects & Learning</p>
   </div>
 
-  <div class="px-5 grid gap-x-10 gap-y-24 mt-4 md:grid-cols-2 lg:grid-cols-3">
+  <div class="px-5 grid gap-x-10 gap-y-24 mt-4 md:grid-cols-2 lg:grid-cols-4">
     {
       artwork.slice(0, limit).map(async (artworkItem) => (
         <a href={`/artwork/${artworkItem.slug}`} class="flex flex-col gap-2 hover:opacity-75">
@@ -41,7 +41,7 @@ if (artworkItems) {
             />
           </div>
 
-          <div class="border-l border-border pl-5 mt-4">
+          <div class="mt-0">
             <p class="text-lg lg:text-xl text-text-primary font-semibold">{artworkItem.data.title}</p>
             <p class="text-accent font-thin text-sm">{artworkItem.data.medium}</p>
           </div>

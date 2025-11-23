@@ -1,6 +1,7 @@
 ---
 title: "Beyond the Bloat: How I Built a Sub-14kB Feedback Widget in Vanilla JS"
 draft: true
+summary: A comprehensive guide to building a lightweight feedback widget using vanilla JavaScript and CSS, staying under 14kB to fit in a single TCP congestion window. The article explores modern web bloat, demonstrates practical optimization techniques, and advocates for performance-focused development that respects users time and data.
 ---
 
 ## Is the Web Broken? A Developer's Plea for Performance and Simplicity

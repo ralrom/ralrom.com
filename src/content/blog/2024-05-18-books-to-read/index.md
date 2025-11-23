@@ -1,6 +1,7 @@
 ---
 title: 1001 Books to Read Before You Die
 draft: true
+summary: A comprehensive list of 1001 books organized by publication era, from pre-1800s classics through to contemporary works from the 2000s. This collection spans multiple languages, cultures, and literary movements, offering a lifetime reading journey through the worlds most significant novels and stories.
 ---
 
 # Overview

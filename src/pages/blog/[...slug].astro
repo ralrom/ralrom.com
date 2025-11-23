@@ -16,5 +16,8 @@ const { Content } = await entry.render();
 ---
 
 <BlogLayout frontmatter={entry.data}>
+  <span class="text-accent uppercase font- tracking-wide">Quick Summary:</span>
+  <span class="italic">{entry?.data.summary}</span>
+  <hr />
   <Content />
 </BlogLayout>

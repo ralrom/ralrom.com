@@ -1,5 +1,6 @@
 ---
 title: A Good Reader Makes a Good Developer
+summary: A reflection on how reading documentation, best practices, and blog posts transformed my development skills. Through early mistakes like reinventing the wheel and manual file minification, I learned that investing time in research and planning saves countless hours later and leads to better code quality.
 ---
 
 When I first began coding, I felt documentation was boring: I used to dive right into coding. As a result, I spent countless hours troubleshooting and writing unmaintainable code.

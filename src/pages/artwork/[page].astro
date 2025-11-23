@@ -13,7 +13,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const artwork = (await getCollection("artwork")).filter((artwork) => !artwork.data.draft);
   artwork.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
 
-  return paginate(artwork, { pageSize: 30 });
+  return paginate(artwork, { pageSize: 32 });
 }
 
 const { page } = Astro.props;
@@ -22,10 +22,6 @@ const { page } = Astro.props;
 <BaseLayout title="Artwork">
   <div class="mt-24">
     <ArtworkList artworkItems={page.data} />
-    <Pagination
-      currentPage={page.currentPage}
-      lastPage={page.lastPage}
-      url={page.url}
-    />
+    <Pagination currentPage={page.currentPage} lastPage={page.lastPage} url={page.url} />
   </div>
 </BaseLayout>
