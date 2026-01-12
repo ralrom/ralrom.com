@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import { getSecret } from "astro:env/server";
 import { Image } from "astro:assets";
 import dayjs from "dayjs";
-import { generateFallbackGradient } from "../utils/generateFallbackGradient";
 
 const blogPosts = (await getCollection("blog")).filter((post) => !post.data.draft);
 
@@ -18,14 +17,12 @@ const { limit } = Astro.props;
   <div class="grid lg:grid-cols-4 gap-6 mt-8">
     {
       blogPosts.slice(0, limit).map((post) => {
-        const gradient = generateFallbackGradient(post.slug, post.data.fallbackColor);
         return (
           <a
             href={`/blog/${post.slug}`}
             class={`group block not-prose border-border border-2 p-6 transition-opacity duration-300 hover:opacity-75 ${post.data?.image ? "col-span-2 row-span-2" : "row-span-1 col-span-2"}`}
           >
             <article class="relative">
-              {/* Featured Image or Fallback Gradient */}
               {post.data.image && (
                 <div class="relative aspect-[16/9] overflow-hidden mb-4">
                   <Image
@@ -38,7 +35,6 @@ const { limit } = Astro.props;
                 </div>
               )}
 
-              {/* Content */}
               <div>
                 <span class="text-accent font-thin">{dayjs(post.id.substring(0, 10)).format("MMM D, YYYY")}</span>
                 <h3 class="text-lg lg:text-2xl text-text-primary font-semibold mb-4">{post.data.title}</h3>
