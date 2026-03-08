@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import { getSecret } from "astro:env/server";
 import { Image } from "astro:assets";
 import dayjs from "dayjs";
 
@@ -12,55 +11,46 @@ const { limit } = Astro.props;
 ---
 
 <div class="container">
-  <h2 class="font-thin text-accent text-2xl w-[300px]">Blog</h2>
-  <p class="text-text-primary text-2xl lg:text-4xl max-w-xl">A collection of photos, web dev & personal improvement</p>
-  <div class="grid lg:grid-cols-4 gap-6 mt-8">
+  <h2 class="font-bold text-accent text-2xl lg:text-3xl uppercase tracking-widest">Blog</h2>
+  <p class="text-text-secondary text-sm lg:text-base max-w-xl mt-1">
+    A collection of photos, web dev & personal improvement
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
     {
       blogPosts.slice(0, limit).map((post) => {
+        const date = dayjs(post.id.substring(0, 10)).format("MMM D, YYYY");
         return (
           <a
             href={`/blog/${post.slug}`}
-            class={`group block not-prose border-border border-2 p-6 transition-opacity duration-300 hover:opacity-75 ${post.data?.image ? "col-span-2 row-span-2" : "row-span-1 col-span-2"}`}
+            class="group relative block overflow-hidden rounded-xl bg-surface border border-border transition-transform duration-300 hover:scale-[1.01] not-prose"
           >
-            <article class="relative">
-              {post.data.image && (
-                <div class="relative aspect-[16/9] overflow-hidden mb-4">
+            {post.data.image ? (
+              <>
+                <div class="aspect-square">
                   <Image
                     src={post.data.image}
                     alt={post.data.title}
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     widths={[400, 800]}
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-              )}
-
-              <div>
-                <span class="text-accent font-thin">{dayjs(post.id.substring(0, 10)).format("MMM D, YYYY")}</span>
-                <h3 class="text-lg lg:text-2xl text-text-primary font-semibold mb-4">{post.data.title}</h3>
-                <div class="text-text-primary text-lg">{post.data.summary}</div>
+                <div class="card-scrim absolute inset-x-0 bottom-0 pt-20 pb-5 px-5">
+                  <span class="text-accent font-thin text-xs">{date}</span>
+                  <h3 class="text-white text-lg font-semibold mt-1 leading-tight">{post.data.title}</h3>
+                </div>
+              </>
+            ) : (
+              <div class="aspect-square p-5 flex flex-col">
+                <span class="text-accent font-thin text-xs">{date}</span>
+                <h3 class="text-text-primary text-lg font-semibold mt-2 leading-snug">{post.data.title}</h3>
+                <p class="text-text-secondary text-sm mt-2 line-clamp-4">{post.data.summary}</p>
               </div>
-            </article>
+            )}
           </a>
         );
       })
     }
   </div>
 </div>
-
-<style>
-  /* Dark mode gradient support */
-  @media (prefers-color-scheme: dark) {
-    .fallback-gradient {
-      background: var(--gradient-dark) !important;
-    }
-  }
-
-  /* Line clamp utility for summary text */
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>

@@ -9,8 +9,6 @@ interface Props {
 
 const { limit, artworkItems } = Astro.props;
 
-// If artworkItems are passed (from pagination), use those
-// Otherwise fetch all artwork (for homepage or non-paginated views)
 let artwork: CollectionEntry<"artwork">[];
 if (artworkItems) {
   artwork = artworkItems;
@@ -18,32 +16,37 @@ if (artworkItems) {
   artwork = (await getCollection("artwork")).filter((artwork) => !artwork.data.draft);
   artwork.sort((a, b) => b.slug?.localeCompare(a?.slug || "") || 0);
 }
+
+const items = artwork.slice(0, limit);
 ---
 
-<div class="large-container">
-  <div class="container mb-12">
-    <h2 class="font-thin text-accent text-2xl w-[300px]">Artwork</h2>
-    <p class="text-text-primary sm:text-lg lg:text-4xl max-w-xl">A Showcase of My Artwork, Hobby Projects & Learning</p>
+<div class="container">
+  <div class="mb-8">
+    <h2 class="font-bold text-accent text-2xl lg:text-3xl uppercase tracking-widest">Artwork</h2>
+    <p class="text-text-secondary text-sm lg:text-base max-w-xl mt-1">
+      A Showcase of My Artwork, Hobby Projects & Learning
+    </p>
   </div>
 
-  <div class="px-5 grid gap-x-10 gap-y-24 mt-4 md:grid-cols-2 lg:grid-cols-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     {
-      artwork.slice(0, limit).map(async (artworkItem) => (
-        <a href={`/artwork/${artworkItem.slug}`} class="flex flex-col gap-2 hover:opacity-75">
+      items.map((artworkItem) => (
+        <a
+          href={`/artwork/${artworkItem.slug}`}
+          class="group relative overflow-hidden rounded-xl bg-surface border border-border block transition-transform duration-300 hover:scale-[1.02]"
+        >
           <div class="aspect-square">
             <Image
               src={artworkItem.data.image}
               width={620}
               height={620}
               alt={artworkItem.data.title}
-              fit="cover"
-              class="w-full h-full object-cover object-center"
+              class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-
-          <div class="mt-0">
-            <p class="text-lg lg:text-xl text-text-primary font-semibold">{artworkItem.data.title}</p>
-            <p class="text-accent font-thin text-sm">{artworkItem.data.medium}</p>
+          <div class="card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4">
+            <p class="text-white font-semibold text-base lg:text-lg leading-tight">{artworkItem.data.title}</p>
+            {artworkItem.data.medium && <p class="text-accent font-thin text-xs mt-0.5">{artworkItem.data.medium}</p>}
           </div>
         </a>
       ))

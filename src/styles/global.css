@@ -21,7 +21,7 @@
 /* Light mode colors (default) */
 :root {
   --color-background: #fafafa;
-  --color-accent: #ffc74d;
+  --color-accent: #c47d00;
   --color-text-primary: #000000;
   --color-text-secondary: #666666;
   --color-border: #e5e5e5;
@@ -35,8 +35,8 @@
     --color-accent: #ffc74d;
     --color-text-primary: #ffffff;
     --color-text-secondary: #cccccc;
-    --color-border: #333333;
-    --color-surface: #1a1a1a;
+    --color-border: #0d1f33;
+    --color-surface: #060e18;
   }
 }
 
@@ -200,4 +200,8 @@ iframe {
 .large-container {
   max-width: 1920px;
   margin: 0 auto;
+}
+
+@utility card-scrim {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.3) 55%, transparent 100%);
 }
