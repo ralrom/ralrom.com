@@ -1,5 +1,5 @@
 import mdx from "@astrojs/mdx";
-import netlify from "@astrojs/netlify";
+// import netlify from "@astrojs/netlify";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
@@ -12,7 +12,8 @@ export default defineConfig({
   site: "https://www.ralrom.com/",
 
   image: {
-    domains: ["covers.openlibrary.org", "ralrom.com"],
+    domains: ["ralrom.com"],
+    quality: 80,
   },
 
   integrations: [
