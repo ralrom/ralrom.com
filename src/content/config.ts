@@ -14,22 +14,6 @@ const blogCollection = defineCollection({
     }),
 });
 
-const bookCollection = defineCollection({
-  type: "content",
-  schema: () =>
-    z.object({
-      draft: z.boolean().optional(),
-      title: z.string(),
-      subtitle: z.string().optional(),
-      olid: z.string(),
-      tags: z.array(z.string()).optional(),
-      page_current: z.number(),
-      page_total: z.number(),
-      affiliate_link: z.string(),
-      start_date: z.date(),
-    }),
-});
-
 const artworkCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -44,6 +28,5 @@ const artworkCollection = defineCollection({
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   blog: blogCollection,
-  books: bookCollection,
   artwork: artworkCollection,
 };
