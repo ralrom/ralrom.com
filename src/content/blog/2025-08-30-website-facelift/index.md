@@ -2,6 +2,7 @@
 title: Website Face Lift
 summary: Side by side comparison of the before and after of my website redesign.
 image: ./assets/after.png
+draft: true
 ---
 
 ## Before
