@@ -1,6 +1,6 @@
 ---
 title: "Holiday Dev Blues: From Vibe Coding to Coding With Intention"
-draft: false
+draft: true
 summary: 'After hitting a wall with burnout and "vibe coding", I decided to strip my dev environment down and start over. From ditching high-cost infrastructure to learning Elixir and Neovim, here is how I''m trying to find my spark again by choosing intention over convenience.'
 ---
 
